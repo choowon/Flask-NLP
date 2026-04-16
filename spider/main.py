@@ -27,14 +27,14 @@ def save_to_sql():
         articleNewPd.to_sql('article', con=engine, if_exists='replace',index=False)
         commentNewPd.to_sql('comments', con=engine, if_exists='replace',index=False)
 
-    os.remove('./articleData.csv')
-    os.remove('./commentsData.csv')
+    # os.remove('./articleData.csv')
+    # os.remove('./commentsData.csv')
 
 
 
 def main():
     print('正在爬取文章内容...')
-    contentStart(2,2)
+    contentStart(30,5)
     print('正在爬取评论内容...')
     commentsStart()
     print('爬取完毕正在存储中...')

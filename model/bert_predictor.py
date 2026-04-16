@@ -17,7 +17,11 @@ def load_model_once():
         tokenizer = BertTokenizer.from_pretrained('bert-base-chinese')
         model_instance = SentimentClassifier()
         model_path = os.path.join("model", "sentiment_model_best.pth")
-        model_instance.load_state_dict(torch.load(model_path, map_location=device))
+        # model_instance.load_state_dict(torch.load(model_path, map_location=device))
+        model_instance.load_state_dict(
+            torch.load(model_path, map_location=device),
+            strict=False
+        )
         model_instance.to(device)
         model_instance.eval()
         model = model_instance

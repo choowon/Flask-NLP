@@ -31,9 +31,22 @@ def wirterRow(row):
             wirter.writerow(row)
 
 def get_json(url,params):
-    headers  = {
-        'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36 Edg/127.0.0.0',
-        'Cookie':'SCF=AnQ2qSn180Dge9MwgUCdoA4mBqCM89aMBSgYzFlXYZOgSo90ToHWO-YmGpOr6xilWmftjUdocQMYKgakhiadRms.; SINAGLOBAL=7727468373074.708.1732304263493; ULV=1743155382749:11:9:3:9358840925073.043.1743155382745:1743129658946; XSRF-TOKEN=Tp4fLatnTgzVv11OGvVIvghK; PC_TOKEN=f454524860; SUB=_2A25FVWw8DeRhGeNM41ET9ijEyTSIHXVmK-H0rDV8PUNbmtAYLUmjkW9NSeBYP2FUov0S_inRZzpbEH7oCiGjCzpR; SUBP=0033WrSXqPxfM725Ws9jqgMF55529P9D9W5Rg7xsxXaus_JFlT2Fe0Mn5JpX5KzhUgL.Fo-E1heESoqReon2dJLoIE-LxK.LBKeLB-qLxK-LB-qLBoqLxK-L122L12xk-s8EIXiaxNH_; ALF=02_1752738156; WBPSESS=HpkzK1RdxrD5A-fhn3HDjt1t-KMAeYXOfAVxAmOfnoXSbx8ng-zlVoIvUWJNRFdKb5z0SepO-sTMZVtt5GuaBpoQy6wtSaY0XBYHOIO6QnYrFvnOOKEGBv46cTNrQKXe7SLEz9EVdBDto1hqQS6U0Q=='
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0",
+
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+        "Accept-Encoding": "gzip, deflate, br",
+
+        "Referer": "https://weibo.com/mygroups?gid=110005270095497",
+
+        "Client-Version": "3.0.0",
+        "Server-Version": "v2026.04.13.3",
+
+        "X-Requested-With": "XMLHttpRequest",
+        "X-XSRF-Token": "9sg6zwsLOvFwgOGpMLMVwh9c",
+
+        "Cookie": "SINAGLOBAL=2626454965714.534.1761749213102; SCF=Ancboj1AhtvTO6pHcFGG-vtKeAZUImwcdbD698GdkZp7QxdVEX-Y2JZj4SS5rxNvUSr-wZr-_97v-Qw9YSrcn98.; XSRF-TOKEN=9sg6zwsLOvFwgOGpMLMVwh9c; PC_TOKEN=c304ce5a67; _s_tentry=-; Apache=5843468602523.462.1776093323168; ULV=1776093323169:3:1:1:5843468602523.462.1776093323168:1764580004438; SUB=_2A25E2XjyDeRhGeNM7FIR-SvIwjuIHXVnl_Q6rDV8PUNbmtANLWfmkW9NThXdIASjYoE7F3dIMhPxQxAvEIEMTYqT; SUBP=0033WrSXqPxfM725Ws9jqgMF55529P9D9WFJAAl1usp_k7Xl4IqKRs755JpX5KzhUgL.Fo-ES0571K-X1KM2dJLoI0qLxKqL1h.LBKMLxKnL1K2L1KMLxKML1-2L1hBLxKnLB--LBo5LxKBLB.2L12zLxKqL1-eLB-et; ALF=02_1778685346; WBPSESS=CgCEolsEIXqpGGXF65Yc68Zb3s7RqJov3tyIPm128KWOer5KZHCT9b_nOfAXQcT90CGBhp3ifBRHPXEPwVPR5ReDW-mm5BjMPvw17aacHrZAZMqojzrUf0DVsumteBSAlhYUCwrUrDlJNaJuIOVtUg=="
     }
     response = requests.get(url,headers=headers,params=params)
     if response.status_code == 200:
