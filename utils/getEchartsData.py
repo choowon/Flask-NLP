@@ -7,7 +7,7 @@ import numpy as np
 from snownlp import SnowNLP
 
 def getTypeList():
-    typeList = list(set([x[8] for x in getPublicData.getAllData()]))
+    typeList = list(set([x[9] for x in getPublicData.getAllData()]))
     return typeList
 
 def getArticleCharOneData(defaultType):
@@ -18,7 +18,7 @@ def getArticleCharOneData(defaultType):
         xData.append(str(rangeNum * item)+ '-' + str(rangeNum*(item+1)))
     yData = [0 for x in range(len(xData))]
     for article in articleList:
-        if article[8] != defaultType:
+        if article[9] != defaultType:
             for item in range(14):
                 if int(article[1]) < rangeNum*(item+2):
                     yData[item] += 1
@@ -33,9 +33,9 @@ def getArticleCharTwoData(defaultType):
         xData.append(str(rangeNum * item)+ '-' + str(rangeNum*(item+1)))
     yData = [0 for x in range(len(xData))]
     for article in articleList:
-        if article[8] != defaultType:
+        if article[9] != defaultType:
             for item in range(14):
-                if int(article[2]) < rangeNum*(item+2):
+                if int(article[3]) < rangeNum*(item+2):
                     yData[item] += 1
                     break
     return xData,yData
@@ -48,9 +48,9 @@ def getArticleCharThreeData(defaultType):
         xData.append(str(rangeNum * item) + '-' + str(rangeNum * (item + 1)))
     yData = [0 for x in range(len(xData))]
     for article in articleList:
-        if article[8] != defaultType:
+        if article[9] != defaultType:
             for item in range(29):
-                if int(article[2]) < rangeNum * (item + 2):
+                if int(article[3]) < rangeNum * (item + 2):
                     yData[item] += 1
                     break
     return xData, yData
@@ -60,9 +60,9 @@ def getGeoCharDataTwo():
     commentList = getPublicData.getAllCommentsData()
     cityDic = {}
     for comment in commentList:
-        if comment[3] == '无': continue
+        if comment[4] == '无': continue
         for j in cityList:
-            if j['province'].find(comment[3]) != -1:
+            if j['province'].find(comment[4]) != -1:
                 if cityDic.get(j['province'], -1) == -1:
                     cityDic[j['province']] = 1
                 else:
@@ -83,9 +83,9 @@ def getGeoCharDataOne():
 
     cityDic = {}
     for article in articleList:
-        if article[4] == '无':continue
+        if article[5] == '无':continue
         for j in cityList:
-                if j['province'].find(article[4]) != -1:
+                if j['province'].find(article[5]) != -1:
                     if cityDic.get(j['province'],-1) == -1:
                         cityDic[j['province']] = 1
                     else:
@@ -108,7 +108,7 @@ def getCommetCharDataOne():
     yData = [0 for x in range(len(xData))]
     for comment in commentList:
             for item in range(99):
-                if int(comment[2]) < rangeNum * (item + 2):
+                if int(comment[3]) < rangeNum * (item + 2):
                     yData[item] += 1
                     break
     return xData, yData
@@ -117,10 +117,10 @@ def getCommetCharDataTwo():
     commentList = getPublicData.getAllCommentsData()
     genderDic = {}
     for i in commentList:
-        if genderDic.get(i[6],-1) == -1:
-            genderDic[i[6]] = 1
+        if genderDic.get(i[7],-1) == -1:
+            genderDic[i[7]] = 1
         else:
-            genderDic[i[6]] += 1
+            genderDic[i[7]] += 1
     resultData = [{
         'name':x[0],
         'value':x[1]

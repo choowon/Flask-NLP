@@ -1,4 +1,8 @@
 import json
+from datetime import datetime
+
+from flask import session
+
 from .query import querys
 import pandas as pd
 import re
@@ -71,7 +75,8 @@ cityList = [
             ]
 
 def getAllData():
-    allData = querys('SELECT * FROM article ORDER BY created_at DESC',[],'select')
+    user_id = session['user_id']
+    allData = querys('SELECT * FROM article where user_id = %s ORDER BY created_at DESC',[user_id],'select')
     return allData
 
 def getAllCiPingTotal():
@@ -88,11 +93,39 @@ def getAllCiPingTotal():
     return data
 
 def getAllCommentsData():
-    allCommentsData = querys('select * from comments',[],'select')
+    user_id = session.get("user_id")
+    allCommentsData = querys('select * from comments where user_id = %s',[user_id],'select')
     return allCommentsData
 
 def getAllUserData():
     return  querys('select * from user',[],'select')
+
+# [新增点 3]：获取所有未被删除的用户
+def getAllActiveUsers():
+    sql = "select id, username, is_admin, createTime, updateTime from user where is_delete = 0"
+    return querys(sql, [], 'select')
+
+# [新增点 4]：执行软删除
+def softDeleteUser(userId):
+    now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    sql = "update user set is_delete = 1, updateTime = %s where id = %s"
+    return querys(sql, [now, userId], 'update')
+
+
+# 验证并修改密码
+def updatePassword(username, old_pwd, new_pwd):
+    # 1. 首先验证旧密码是否正确
+    check_sql = "select * from user where username = %s and password = %s"
+    user = querys(check_sql, [username, old_pwd],'select')
+
+    if len(user) == 0:
+        return False, "旧密码输入错误"
+
+    # 2. 执行密码更新
+    now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    update_sql = "update user set password = %s, updateTime = %s where username = %s"
+    querys(update_sql, [new_pwd, now, username], 'update')
+    return True, "修改成功"
 
 if __name__ == '__main__':
     print(getAllCiPingTotal())

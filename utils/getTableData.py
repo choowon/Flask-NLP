@@ -10,19 +10,19 @@ def getTableData(hotWord):
     commentList = getAllCommentsData()
     tableData =[]
     for comment in commentList:
-        if comment[4].find(hotWord) != -1:
+        if comment[5].find(hotWord) != -1:
             tableData.append(comment)
     return tableData
 
 def getTableDataEchartsData(hotWord):
     tableList = getTableData(hotWord)
-    xData = [x[1] for x in tableList]
+    xData = [x[2] for x in tableList]
     xData = list(set(xData))
     xData = list(sorted(xData,key=lambda x:datetime.strptime(x,'%Y-%m-%d').timestamp(),reverse=True))
     yData = [0 for x in range(len(xData))]
     for comment in tableList:
         for index,x in enumerate(xData):
-            if comment[1] == x:
+            if comment[2] == x:
                 yData[index] += 1
     return xData,yData
 
@@ -35,14 +35,14 @@ from snownlp import SnowNLP
 import os
 import json
 
-def getTableDataArticle(flag):
+def getTableDataArticle(flag, username):
     tableListOld = getAllData()
 
     if not flag:
         return tableListOld
 
     # 缓存文件路径
-    cache_path = 'cache/tableDataArticle.json'
+    cache_path = f'cache/{username}_tableDataArticle.json'
 
     # 如果缓存存在，直接加载
     if os.path.exists(cache_path):

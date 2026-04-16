@@ -1,0 +1,198 @@
+{#{% extends 'base_page.html' %}#}
+{##}
+{#{% block title %}用户管理{% endblock %}#}
+{##}
+{#{% block content %}#}
+{#<div class="content-page">#}
+{#    <div class="container-fluid">#}
+{#       <div class="row">#}
+{#          <div class="col-md-12 mb-4 mt-1">#}
+{#             <h4 class="font-weight-bold">系统用户管理</h4>#}
+{#          </div>#}
+{#          <div class="col-lg-12">#}
+{#             <div class="card border-0 shadow-sm">#}
+{#                <div class="card-body">#}
+{#                   <div class="table-responsive">#}
+{#                      <table class="table table-hover mb-0 text-center">#}
+{#                         <thead class="bg-light">#}
+{#                            <tr>#}
+{#                               <th>用户ID</th>#}
+{#                               <th>用户名</th>#}
+{#                               <th>角色</th>#}
+{#                               <th>创建时间</th>#}
+{#                               <th>最后更新时间</th>#}
+{#                               <th>操作</th>#}
+{#                            </tr>#}
+{#                         </thead>#}
+{#                         <tbody>#}
+{#                            {% for u in userList %}#}
+{#                            <tr id="user-row-{{ u[0] }}">#}
+{#                               <td>{{ u[0] }}</td>#}
+{#                               <td class="font-weight-bold">{{ u[1] }}</td>#}
+{#                               <td>#}
+{#                                  {% if u[2] == 1 %}#}
+{#                                    <span class="badge badge-primary">管理员</span>#}
+{#                                  {% else %}#}
+{#                                    <span class="badge badge-info">普通用户</span>#}
+{#                                  {% endif %}#}
+{#                               </td>#}
+{#                               <td>{{ u[3] }}</td>#}
+{#                               <td>{{ u[4] if u[4] else '-' }}</td>#}
+{#                               <td>#}
+{#                                  {% if u[1] == session.get('username') %}#}
+{#                                    <span class="text-secondary small">当前登录</span>#}
+{#                                  {% else %}#}
+{#                                    <button class="btn btn-sm btn-outline-danger" onclick="doDelete('{{ u[0] }}', '{{ u[1] }}')">删除</button>#}
+{#                                  {% endif %}#}
+{#                               </td>#}
+{#                            </tr>#}
+{#                            {% endfor %}#}
+{#                         </tbody>#}
+{#                      </table>#}
+{#                   </div>#}
+{#                </div>#}
+{#             </div>#}
+{#          </div>#}
+{#       </div>#}
+{#    </div>#}
+{#</div>#}
+{##}
+{#<script>#}
+{#// [新增点 9]：沿用原生 JS 实现无刷新软删除#}
+{#function doDelete(uid, uname) {#}
+{#    if(confirm('确定要删除用户 [' + uname + '] 吗？此操作将导致该用户无法登录。')) {#}
+{#        let fd = new FormData();#}
+{#        fd.append('id', uid);#}
+{##}
+{#        fetch('/page/deleteUser', {#}
+{#            method: 'POST',#}
+{#            body: fd#}
+{#        })#}
+{#        .then(res => res.json())#}
+{#        .then(data => {#}
+{#            if(data.code === 200) {#}
+{#                alert('删除成功！');#}
+{#                // 成功后直接在前端移除该行，无需刷新页面#}
+{#                document.getElementById('user-row-' + uid).remove();#}
+{#            } else {#}
+{#                alert('删除失败：' + data.msg);#}
+{#            }#}
+{#        })#}
+{#        .catch(err => {#}
+{#            alert('网络请求出错！');#}
+{#        });#}
+{#    }#}
+{#}#}
+{#</script>#}
+{#{% endblock %}#}
+{% extends 'base_page.html' %}
+
+{% block title %}用户管理{% endblock %}
+
+{% block content %}
+<div class="content-page">
+    <div class="container-fluid">
+       <div class="row">
+          <div class="col-md-12 mb-4 mt-1">
+             <h4 class="font-weight-bold">系统用户管理</h4>
+          </div>
+          <div class="col-lg-12">
+             <div class="card border-0 shadow-sm">
+                <div class="card-body">
+                   <div class="table-responsive">
+                      <table class="table table-hover mb-0 text-center">
+                         <thead class="bg-light">
+                            <tr>
+                               <th>用户ID</th>
+                               <th>用户名</th>
+                               <th>角色</th>
+                               <th>创建时间</th>
+                               <th>最后更新时间</th>
+                               <th>操作</th>
+                            </tr>
+                         </thead>
+                         <tbody>
+                            {% for u in userList %}
+                            <tr id="user-row-{{ u[0] }}">
+                               <td>{{ u[0] }}</td>
+                               <td class="font-weight-bold">{{ u[1] }}</td>
+                               <td>
+                                  {% if u[2] == 1 %}
+                                    <span class="badge badge-primary">管理员</span>
+                                  {% else %}
+                                    <span class="badge badge-info">普通用户</span>
+                                  {% endif %}
+                               </td>
+                               <td>{{ u[3] }}</td>
+                               <td>{{ u[4] if u[4] else '-' }}</td>
+                               <td>
+                                  {% if u[1] == session.get('username') %}
+                                    <span class="text-secondary small">当前登录</span>
+                                  {% else %}
+                                    <button class="btn btn-sm btn-outline-warning mr-2" onclick="doResetPwd('{{ u[0] }}', '{{ u[1] }}')">重置密码</button>
+                                    <button class="btn btn-sm btn-outline-danger" onclick="doDelete('{{ u[0] }}', '{{ u[1] }}')">删除</button>
+                                  {% endif %}
+                               </td>
+                            </tr>
+                            {% endfor %}
+                         </tbody>
+                      </table>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+</div>
+
+<script>
+// 沿用原生 JS 实现无刷新软删除
+function doDelete(uid, uname) {
+    if(confirm('确定要删除用户 [' + uname + '] 吗？此操作将导致该用户无法登录。')) {
+        let fd = new FormData();
+        fd.append('id', uid);
+
+        fetch('/page/deleteUser', {
+            method: 'POST',
+            body: fd
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.code === 200) {
+                alert('删除成功！');
+                document.getElementById('user-row-' + uid).remove();
+            } else {
+                alert('删除失败：' + data.msg);
+            }
+        })
+        .catch(err => {
+            alert('网络请求出错！');
+        });
+    }
+}
+
+// [新增点 6]：新增管理员重置用户密码 JS 请求逻辑
+function doResetPwd(uid, uname) {
+    if(confirm('确定要将用户 [' + uname + '] 的密码重置吗？重置后默认密码为 123456 。')) {
+        let fd = new FormData();
+        fd.append('id', uid);
+
+        fetch('/user/resetPassword', {
+            method: 'POST',
+            body: fd
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.code === 200) {
+                alert('重置成功！该用户的默认登录密码已被设为：123456');
+            } else {
+                alert('重置失败：' + data.msg);
+            }
+        })
+        .catch(err => {
+            alert('网络请求出错！');
+        });
+    }
+}
+</script>
+{% endblock %}

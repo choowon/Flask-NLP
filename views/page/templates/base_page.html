@@ -1,127 +1,1162 @@
+{#<!doctype html>#}
+{#<html lang="en">#}
+{#  <head>#}
+{#    <meta charset="utf-8">#}
+{#      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">#}
+{#      <title>{% block  title %}首页{% endblock %}</title>#}
+{#      <link rel="stylesheet" href="/static/css/backend-plugin.min.css">#}
+{#      <link rel="stylesheet" href="/static/css/backend.css">  </head>#}
+{#  <meta name="referrer" content="no-referrer" />#}
+{#  <link rel="dns-prefetch" href="//h5.sinaimg.cn">#}
+{#  <body class="">#}
+{#    <div class="wrapper">#}
+{#      <div class="iq-sidebar  sidebar-default  ">#}
+{#          <div class="iq-sidebar-logo d-flex align-items-end justify-content-between">#}
+{#               <a href="" class="header-logo">#}
+{#                  <img src="https://weibo.com/favicon.ico" class="img-fluid rounded-normal light-logo" alt="logo">#}
+{#                  <img src="https://weibo.com/favicon.ico" class="img-fluid rounded-normal d-none sidebar-light-img" alt="logo">#}
+{#                  <span>微博舆情数据分析</span>#}
+{#              </a>#}
+{#              <div class="side-menu-bt-sidebar-1">#}
+{#                      <svg xmlns="http://www.w3.org/2000/svg" class="text-light wrapper-menu" width="30" fill="none" viewbox="0 0 24 24" stroke="currentColor">#}
+{#                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>#}
+{#                      </svg>#}
+{#                  </div>#}
+{#          </div>#}
+{#          <div class="data-scrollbar" data-scroll="1">#}
+{#              {% block nav %}#}
+{#<nav class="iq-sidebar-menu">#}
+{#                  <ul id="iq-sidebar-toggle" class="side-menu">#}
+{#                      <li class="px-3 pt-3 pb-2 ">#}
+{#                          <span class="text-uppercase small font-weight-bold">首页</span>#}
+{#                      </li>#}
+{#                      <li class="active sidebar-layout">#}
+{#                          <a href="/page/home" class="svg-icon">#}
+{#                              <i class="">#}
+{#                                  <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none" viewbox="0 0 24 24" stroke="currentColor">#}
+{#                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>#}
+{#                                  </svg>#}
+{#                              </i>#}
+{#                              <span class="ml-2">首页</span>#}
+{#                          </a>#}
+{#                      </li>#}
+{#                      <li class="sidebar-layout">#}
+{#                          <a href="/page/tableData" class="collapsed svg-icon">#}
+{#                              <i>#}
+{#                                  <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none" viewbox="0 0 24 24" stroke="currentColor">#}
+{#                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>#}
+{#                                  </svg>#}
+{#                              </i>#}
+{#                              <span class="ml-2">热词统计</span>#}
+{#                          </a>#}
+{#                      </li>#}
+{#                      <li class="sidebar-layout">#}
+{#                          <a href="/page/tableDataArticle" class="collapsed svg-icon">#}
+{#                              <i>#}
+{#                                  <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none" viewbox="0 0 24 24" stroke="currentColor">#}
+{#                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>#}
+{#                                  </svg>#}
+{#                              </i>#}
+{#                              <span class="ml-2">微博舆情统计</span>#}
+{#                          </a>#}
+{#                      </li>#}
+{#                      <li class="px-3 pt-3 pb-2 ">#}
+{#                          <span class="text-uppercase small font-weight-bold">数据可视化</span>#}
+{#                      </li>#}
+{#                      <li class=" sidebar-layout">#}
+{#                          <a href="/page/articleChar" class="svg-icon">#}
+{#                              <i class="">#}
+{#                                  <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none" viewbox="0 0 24 24" stroke="currentColor">#}
+{#                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path>#}
+{#                                  </svg>#}
+{#                              </i>#}
+{#                              <span class="ml-2">文章分析</span>#}
+{#                          </a>#}
+{#                      </li>#}
+{#                      <li class=" sidebar-layout">#}
+{#                          <a href="/page/ipChar" class="svg-icon">#}
+{#                              <i class="">#}
+{#                                  <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none" viewbox="0 0 24 24" stroke="currentColor">#}
+{#                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>#}
+{#                                  </svg>#}
+{#                              </i>#}
+{#                              <span class="ml-2">IP分析</span>#}
+{#                          </a>#}
+{#                      </li>#}
+{#                      <li class=" sidebar-layout">#}
+{#                          <a href="/page/commentChar" class="svg-icon">#}
+{#                              <i class="">#}
+{#                                  <svg class="icon line" width="18" id="receipt" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" stroke="currentColor">#}
+{#                                      <path d="M17,16V3L13,5,10,3,7,5,3,3V17.83A3.13,3.13,0,0,0,5.84,21,3,3,0,0,0,9,18V17a1,1,0,0,1,1-1H20a1,1,0,0,1,1,1v1a3,3,0,0,1-3,3H6" style="fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path>#}
+{#                                      <line x1="8" y1="10" x2="12" y2="10" style="fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></line>#}
+{#                                  </svg>#}
+{#                              </i>#}
+{#                              <span class="ml-2">评论分析</span>#}
+{#                          </a>#}
+{#                      </li>#}
+{#                      <li class=" sidebar-layout">#}
+{#                          <a href="/page/yuqingChar" class="svg-icon">#}
+{#                              <i class="">#}
+{#                                  <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none" viewbox="0 0 24 24" stroke="currentColor">#}
+{#                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>#}
+{#                                  </svg>#}
+{#                              </i><span class="ml-2">舆情分析</span>#}
+{#                          </a>#}
+{#                      </li>#}
+{#                      <li class="px-3 pt-3 pb-2">#}
+{#                          <span class="text-uppercase small font-weight-bold">词云图</span>#}
+{#                      </li>#}
+{#                      <li class=" sidebar-layout">#}
+{#                          <a href="/page/contentCloud" class="svg-icon">#}
+{#                              <i class="">#}
+{#                                  <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none" viewbox="0 0 24 24" stroke="currentColor">#}
+{#                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>#}
+{#                                  </svg>#}
+{#                              </i><span class="ml-2">文章内容词云图</span>#}
+{#                          </a>#}
+{#                      </li>#}
+{#                      {% if session.get('is_admin') == 1 %}#}
+{#                    <li class="px-3 pt-3 pb-2 "><span class="text-uppercase small font-weight-bold">系统管理</span></li>#}
+{#                    <li class="sidebar-layout">#}
+{#                        <a href="/page/userManage" class="svg-icon">#}
+{#                            <svg class="svg-icon" width="18" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>#}
+{#                            <span class="ml-2">用户管理</span>#}
+{#                        </a>#}
+{#                    </li>#}
+{#                    {% endif %}#}
+{#                  </ul>#}
+{#              </nav>#}
+{#              {% endblock %}#}
+{#              <div class="pt-5 pb-5"></div>#}
+{#          </div>#}
+{#      </div>#}
+{#       <div class="iq-top-navbar">#}
+{#          <div class="iq-navbar-custom">#}
+{#              <nav class="navbar navbar-expand-lg navbar-light p-0">#}
+{#                  <div class="side-menu-bt-sidebar">#}
+{#                      <svg xmlns="http://www.w3.org/2000/svg" class="text-secondary wrapper-menu" width="30" fill="none" viewbox="0 0 24 24" stroke="currentColor">#}
+{#                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>#}
+{#                      </svg>#}
+{#                  </div>#}
+{#                  <div class="d-flex align-items-center">#}
+{#                      <div class="change-mode">#}
+{#                          <div class="custom-control custom-switch custom-switch-icon custom-control-inline">#}
+{#                              <div class="custom-switch-inner">#}
+{#                                  <p class="mb-0"> </p>#}
+{#                                  <input type="checkbox" class="custom-control-input" id="dark-mode" data-active="true">#}
+{#                                  <label class="custom-control-label" for="dark-mode" data-mode="toggle">#}
+{#                                      <span class="switch-icon-right">#}
+{#                                          <svg xmlns="http://www.w3.org/2000/svg" id="h-moon" height="20" width="20" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor">#}
+{#                                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>#}
+{#                                          </svg>#}
+{#                                      </span>#}
+{#                                      <span class="switch-icon-left">#}
+{#                                          <svg xmlns="http://www.w3.org/2000/svg" id="h-sun" height="20" width="20" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor">#}
+{#                                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>#}
+{#                                          </svg>#}
+{#                                      </span>#}
+{#                                  </label>#}
+{#                              </div>#}
+{#                          </div>#}
+{#                      </div>#}
+{#                      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-label="Toggle navigation">#}
+{#                          <svg xmlns="http://www.w3.org/2000/svg" class="text-secondary" width="30" fill="none" viewbox="0 0 24 24" stroke="currentColor">#}
+{#                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>#}
+{#                          </svg>#}
+{#                      </button>#}
+{#                      <div class="collapse navbar-collapse" id="navbarSupportedContent">#}
+{#                          <ul class="navbar-nav ml-auto navbar-list align-items-center">#}
+{#                              <li class="nav-item nav-icon dropdown">#}
+{#                                  <a href="#" class="nav-item nav-icon dropdown-toggle pr-0 search-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
+{#                                      <span class="mb-0 ml-2 user-name">{{ username }}</span>#}
+{#                                  </a>#}
+{#                                  <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">#}
+{#                                      <li class="dropdown-item  d-flex svg-icon ">#}
+{#                                          <svg class="svg-icon mr-0 text-secondary" id="h-05-p" width="20" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke="currentColor">#}
+{#                                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>#}
+{#                                          </svg>#}
+{#                                          <a href="/user/logOut">退出登录</a>#}
+{#                                      </li>#}
+{#                                  </ul>#}
+{#                              </li>#}
+{#                          </ul>#}
+{#                      </div>#}
+{#                  </div>#}
+{#              </nav>#}
+{#          </div>#}
+{#      </div>#}
+{#        {% block content %}#}
+{#              <div class="content-page">#}
+{#        <div class="container-fluid">#}
+{#   <div class="row">#}
+{#      <div class="col-md-12 mb-4 mt-1">#}
+{#         <div class="d-flex flex-wrap justify-content-between align-items-center">#}
+{#             <h4 class="font-weight-bold">首页</h4>#}
+{#         </div>#}
+{#      </div>#}
+{#      <div class="col-lg-8 col-md-12">#}
+{#         <div class="row">#}
+{#            <div class="col-md-4">#}
+{#               <div class="card">#}
+{#                  <div class="card-body">#}
+{#                     <div class="d-flex align-items-center">#}
+{#                        <div class="">#}
+{#                            <p class="mb-2 text-secondary">总文章个数</p>#}
+{#                            <div class="d-flex flex-wrap justify-content-start align-items-center">#}
+{#                               <h5 class="mb-0 font-weight-bold">{{ articleLen }}个</h5>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                     </div>#}
+{#                  </div>#}
+{#               </div>#}
+{#            </div>#}
+{#            <div class="col-md-4">#}
+{#            <div class="card">#}
+{#                <div class="card-body">#}
+{#                    <div class="d-flex align-items-center">#}
+{#                        <div class="">#}
+{#                            <p class="mb-2 text-secondary">最高点赞微博-作者</p>#}
+{#                            <div class="d-flex flex-wrap justify-content-start align-items-center">#}
+{#                               <h5 class="mb-0 font-weight-bold">{{ maxLikeAuthorName }}</h5>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#            </div>#}
+{#            <div class="col-md-4">#}
+{#            <div class="card">#}
+{#                <div class="card-body">#}
+{#                    <div class="d-flex align-items-center">#}
+{#                        <div class="">#}
+{#                           <p class="mb-2 text-secondary">最多城市</p>#}
+{#                           <div class="d-flex flex-wrap justify-content-start align-items-center">#}
+{#                              <h5 class="mb-0 font-weight-bold">{{ maxCity }}</h5>#}
+{#                           </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#            </div>#}
+{#            <div class="col-md-12">#}
+{#            <div class="card">#}
+{#                <div class="card-body">#}
+{#                  <div class="d-flex justify-content-between align-items-center flex-wrap">#}
+{#                     <h4 class="font-weight-bold">文章发布时间个数</h4>#}
+{#                  </div>#}
+{#                   <div id="main" style="width:100%;height:350px">#}
+{##}
+{#                   </div>#}
+{#                </div>#}
+{#            </div>#}
+{#            </div>#}
+{#         </div>#}
+{#      </div>#}
+{#      <div class="col-lg-4 col-md-8">#}
+{#         <div class="card card-block card-stretch card-height">#}
+{#            <div class="card-header card-header-border d-flex justify-content-between">#}
+{#               <div class="header-title">#}
+{#                  <h4 class="card-title">评论点赞量 Top Fore</h4>#}
+{#               </div>#}
+{#            </div>#}
+{#            <div class="card-body-list">#}
+{#               <ul class="list-style-3 mb-0">#}
+{#                   {% for comment in topFiveComments %}#}
+{#                       <li class="p-3 list-item d-flex justify-content-start align-items-center">#}
+{#                         <div class="avatar">#}
+{#                                 <img class="avatar avatar-img avatar-60 rounded" src="{{ comment[8] }}" alt="1.jpg">#}
+{#                         </div>#}
+{#                         <div class="list-style-detail mr-2">#}
+{#                             <p>#}
+{#                                 🧑‍{{ comment[5] }}#}
+{#                             </p>#}
+{#                            <p class="mb-0" style="color:#ccc;width:300px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden">#}
+{#                                {{ comment[4] }}#}
+{#                            </p>#}
+{#                         </div>#}
+{#                         <div class="list-style-action d-flex justify-content-end ml-auto">#}
+{#                            <h6 class="font-weight-bold text-danger">#}
+{#                                👍{{ comment[2] }}#}
+{#                            </h6>#}
+{#                         </div>#}
+{#                      </li>#}
+{#                   {% endfor %}#}
+{#               </ul>#}
+{#            <div class="d-flex justify-content-end align-items-center border-top-table p-3">#}
+{#                     <a href="/page/tableData" class="btn btn-secondary btn-sm">查看全部</a>#}
+{#                  </div>#}
+{#            </div>#}
+{#         </div>#}
+{##}
+{#      </div>#}
+{#      <div class="col-lg-4 col-md-6">#}
+{#         <div class="card card-block card-stretch card-height">#}
+{#            <div class="card-header d-flex justify-content-between">#}
+{#               <div class="header-title">#}
+{#                  <h4 class="card-title">文章类型占比</h4>#}
+{#               </div>#}
+{#            </div>#}
+{#            <div class="card-body p-10">#}
+{#                <div id="mainTwo" style="width:100%;height:450px">#}
+{##}
+{#                </div>#}
+{#            </div>#}
+{#         </div>#}
+{#      </div>#}
+{#      <div class="col-lg-4 col-md-6">#}
+{#         <div class="card card-block card-stretch card-height">#}
+{#            <div class="card-header d-flex justify-content-between">#}
+{#               <div class="header-title">#}
+{#                  <h4 class="card-title">评论用户名词云图</h4>#}
+{#               </div>#}
+{#            </div>#}
+{#            <div class="card-body p-10">#}
+{#                <img style="width:100%" src="/static/authorNameCloud.jpg" alt="">#}
+{#            </div>#}
+{#         </div>#}
+{#      </div>#}
+{#      <div class="col-lg-4 col-md-6">#}
+{#         <div class="card card-block card-stretch card-height">#}
+{#            <div class="card-header d-flex justify-content-between">#}
+{#               <div class="header-title">#}
+{#                  <h4 class="card-title">评论用户时间占比</h4>#}
+{#               </div>#}
+{#            </div>#}
+{#            <div class="card-body p-10">#}
+{#                <div id="mainThree" style="width:100%;height:450px">#}
+{##}
+{#                </div>#}
+{#            </div>#}
+{#         </div>#}
+{#      </div>#}
+{#   </div>#}
+{#    <!-- Page end  -->#}
+{#</div>#}
+{#      </div>#}
+{#        {% endblock %}#}
+{##}
+{#    </div>#}
+{#    <footer class="iq-footer">#}
+{#        <div class="container-fluid">#}
+{#            <div class="row">#}
+{#                <div class="col-lg-6">#}
+{#                </div>#}
+{#                <div class="col-lg-6 text-right">#}
+{#                    <span class="mr-1">Copyright &copy; 2025.<a target="_blank" href="#">微博舆情实时数据分析可视化系统</a></span>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </footer>#}
+{#    <script src="/static/echarts.min.js"></script>#}
+{#            <script src="/static/china.js"></script>#}
+{#    {% block echarts %}#}
+{#        <script>#}
+{#    var lineChart = document.getElementById('main');#}
+{##}
+{#    var myCharts = echarts.init(lineChart,{ width: 1000, height: 250 });#}
+    {#var xData = {{ xData | tojson }}#}
+    {#var yData = {{ yData }};#}
+{#    var xData = {{ xData | default([]) | tojson }};#}
+{#    var yData = {{ yData | default([]) | tojson }};#}
+{#    var xRes = []#}
+{#    var yRes = []#}
+{#    for (var i = 0; i < 8; i++) {#}
+{#        xRes.push(xData[i])#}
+{#        yRes.push(yData[i])#}
+{#    }#}
+{#    var options = {#}
+{#        tooltip: {#}
+{#    trigger: 'axis'#}
+{#  },#}
+{#  legend: {},#}
+{#  toolbox: {#}
+{#    show: true,#}
+{#    feature: {#}
+{#      dataZoom: {#}
+{#        yAxisIndex: 'none'#}
+{#      },#}
+{#      dataView: { readOnly: false },#}
+{#      magicType: { type: ['line', 'bar'] },#}
+{#      restore: {},#}
+{#      saveAsImage: {}#}
+{#    }#}
+{#  },#}
+{#        xAxis: {#}
+{#            type: 'category',#}
+{#            data: xRes,#}
+{#            boundaryGap: false,#}
+{##}
+{#        },#}
+{#        yAxis: {#}
+{#            type: 'value'#}
+{#        },#}
+{#        series: [{#}
+{#            name:"日期个数",#}
+{#            data: yRes,#}
+{#            type: 'line',#}
+{#            smooth: true, // 圆润的折线#}
+{#            areaStyle: {#}
+{#                color: 'rgba(0, 128, 255, 0.2)' // 添加阴影效果#}
+{#            },#}
+{#            lineStyle: {#}
+{#                width: 5 // 设置较宽的折线#}
+{#            },#}
+{#            emphasis: {#}
+{#                focus: 'series' // 高亮显示整个系列#}
+{#            }#}
+{#        }]#}
+{#    };#}
+{##}
+{##}
+{#    let count = 8;#}
+{#    setInterval(() => {#}
+{#        if (count >= xData.length) count = 0#}
+{#        xRes.shift()#}
+{#        xRes.push(xData[count])#}
+{#        yRes.shift()#}
+{#        yRes.push(yData[count])#}
+{#        count++#}
+{#        myCharts.setOption({#}
+{#            xAxis: [{#}
+{#                data: xRes#}
+{#            }],#}
+{#            series: [#}
+{#                {#}
+{#                    data: yRes#}
+{#                }#}
+{#            ]#}
+{#        })#}
+{#    }, 2000)#}
+{#    myCharts.setOption(options);#}
+{##}
+{#    </script>#}
+{#        <script>#}
+{#            var chartDom = document.getElementById('mainTwo');#}
+{#            var myChart = echarts.init(chartDom);#}
+{#            var option;#}
+{##}
+{#            option = {#}
+{#              title: {#}
+{#                text: '各文章类型占比饼状图',#}
+{#                left: 'center'#}
+{#              },#}
+{#              tooltip: {#}
+{#                trigger: 'item'#}
+{#              },#}
+{#              legend: {#}
+{#                orient: 'vertical',#}
+{#                left: 'left'#}
+{#              },#}
+{#              series: [#}
+{#                {#}
+{#                  name: '类型个数',#}
+{#                  type: 'pie',#}
+{#                  radius: '50%',#}
+{#                    data: {{ userCreatedDicData | default([]) | tojson }},#}
+                  {#data: {{ userCreatedDicData |tojson }},#}
+{#                  emphasis: {#}
+{#                    itemStyle: {#}
+{#                      shadowBlur: 10,#}
+{#                      shadowOffsetX: 0,#}
+{#                      shadowColor: 'rgba(0, 0, 0, 0.5)'#}
+{#                    }#}
+{#                  }#}
+{#                }#}
+{#              ]#}
+{#            };#}
+{##}
+{#            option && myChart.setOption(option);#}
+{##}
+{#        </script>#}
+{#        <script>#}
+{#            var chartDom = document.getElementById('mainThree');#}
+{#            var myChart = echarts.init(chartDom);#}
+{#            var option;#}
+{##}
+{#            option = {#}
+{#              tooltip: {#}
+{#                trigger: 'item'#}
+{#              },#}
+{#              legend: {#}
+{#                top: '5%',#}
+{#                left: 'center',#}
+{#                  type: 'scroll',#}
+{#              },#}
+{#              series: [#}
+{#                {#}
+{#                  name: '用户发布微博个数',#}
+{#                  type: 'pie',#}
+{#                  radius: ['60%', '50%'],#}
+{#                  avoidLabelOverlap: false,#}
+{#                  label: {#}
+{#                    show: false,#}
+{#                    position: 'center'#}
+{#                  },#}
+{#                  emphasis: {#}
+{#                    label: {#}
+{#                      show: true,#}
+{#                      fontSize: 27,#}
+{#                      fontWeight: 'bold'#}
+{#                    }#}
+{#                  },#}
+{#                  labelLine: {#}
+{#                    show: false#}
+{#                  },#}
+                  {#data:{{ commentUserCreatedDicData | tojson }}#}
+{#                    data: {{ commentUserCreatedDicData | default([]) | tojson }}#}
+{#                }#}
+{#              ]#}
+{#            };#}
+{##}
+{#            option && myChart.setOption(option);#}
+{#        </script>#}
+{#    {% endblock %}#}
+{#    <script src="/static/js/backend-bundle.min.js"></script>#}
+{#    <script src="/static/js/customizer.js"></script>#}
+{#    <script src="/static/js/sidebar.js"></script>#}
+{#    <script src="/static/js/flex-tree.min.js"></script>#}
+{#    <script src="/static/js/tree.js"></script>#}
+{#    <script src="/static/js/table-treeview.js"></script>#}
+{#    <script src="/static/js/sweetalert.js"></script>#}
+{#    <script src="/static/js/vector-map-custom.js"></script>#}
+{#    <script src="/static/js/chart-custom.js"></script>#}
+{#    <script src="/static/js/01.js"></script>#}
+{#    <script src="/static/js/02.js"></script>#}
+{#    <script src="/static/js/slider.js"></script>#}
+{#    <script src="/static/js/index.js" type="module"></script>#}
+{#    <script src="/static/js/app.js"></script>  </body>#}
+{#</html>#}
+
+{#<!doctype html>#}
+{#<html lang="en">#}
+{#  <head>#}
+{#    <meta charset="utf-8">#}
+{#      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">#}
+{#      <title>{% block  title %}首页{% endblock %}</title>#}
+{#      <link rel="stylesheet" href="/static/css/backend-plugin.min.css">#}
+{#      <link rel="stylesheet" href="/static/css/backend.css">#}
+{##}
+{#      <style>#}
+{#          /* 布局响应式调整 */#}
+{#          @media (min-width: 992px) {#}
+{#              body:not(.sidebar-main) .iq-sidebar { width: 220px; }#}
+{#              body:not(.sidebar-main) .content-page { margin-left: 220px; }#}
+{#              body:not(.sidebar-main) .iq-top-navbar { width: calc(100% - 220px); left: 220px; }#}
+{#          }#}
+{##}
+{#          /* 侧边栏及全局 UI 美化 */#}
+{#          .iq-sidebar-logo a span { font-size: 17px !important; font-weight: bold; white-space: nowrap; }#}
+{#          body { background-color: #f4f6f9; }#}
+{##}
+{#          /* 卡片统一优化：圆角、无边框、柔和阴影 */#}
+{#          .card {#}
+{#              border-radius: 12px;#}
+{#              box-shadow: 0 4px 15px rgba(0,0,0,0.02) !important;#}
+{#              border: none !important;#}
+{#              transition: all 0.3s ease;#}
+{#          }#}
+{#          .card:hover { box-shadow: 0 8px 25px rgba(0,0,0,0.06) !important; }#}
+{#          .card-header { background-color: transparent; border-bottom: 1px solid rgba(0,0,0,0.03); }#}
+{#          .btn { border-radius: 6px; }#}
+{##}
+{#          /* 列表样式优化 */#}
+{#          .list-style-3 .list-item { border-bottom: 1px solid #f8f9fa; transition: background-color 0.2s; }#}
+{#          .list-style-3 .list-item:hover { background-color: #fcfcfc; }#}
+{#          .list-style-3 .list-item:last-child { border-bottom: none; }#}
+{##}
+{#          /* 小眼睛悬浮效果 */#}
+{#          .toggle-pwd:hover { color: #5470c6; }#}
+{#      </style>#}
+{#  </head>#}
+{#  <meta name="referrer" content="no-referrer" />#}
+{#  <link rel="dns-prefetch" href="//h5.sinaimg.cn">#}
+{#  <body class="">#}
+{#    <div class="wrapper">#}
+{#      <div class="iq-sidebar sidebar-default">#}
+{#          <div class="iq-sidebar-logo d-flex align-items-end justify-content-between">#}
+{#               <a href="/page/home" class="header-logo">#}
+{#                  <img src="https://weibo.com/favicon.ico" class="img-fluid rounded-normal light-logo" alt="logo">#}
+{#                  <img src="https://weibo.com/favicon.ico" class="img-fluid rounded-normal d-none sidebar-light-img" alt="logo">#}
+{#                  <span>微博舆情数据分析</span>#}
+{#              </a>#}
+{#              <div class="side-menu-bt-sidebar-1">#}
+{#                  <svg xmlns="http://www.w3.org/2000/svg" class="text-light wrapper-menu" width="30" fill="none" viewbox="0 0 24 24" stroke="currentColor">#}
+{#                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>#}
+{#                  </svg>#}
+{#              </div>#}
+{#          </div>#}
+{#          <div class="data-scrollbar" data-scroll="1">#}
+{#              {% block nav %}#}
+{#              <nav class="iq-sidebar-menu">#}
+{#                  <ul id="iq-sidebar-toggle" class="side-menu">#}
+{#                      <li class="px-3 pt-3 pb-2 "><span class="text-uppercase small font-weight-bold">首页</span></li>#}
+{#                      <li class="active sidebar-layout"><a href="/page/home" class="svg-icon"><i><svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg></i><span class="ml-2">首页</span></a></li>#}
+{#                      <li class="sidebar-layout"><a href="/page/tableData" class="collapsed svg-icon"><i><svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg></i><span class="ml-2">热词统计</span></a></li>#}
+{#                      <li class="sidebar-layout"><a href="/page/tableDataArticle" class="collapsed svg-icon"><i><svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg></i><span class="ml-2">微博舆情统计</span></a></li>#}
+{#                      <li class="px-3 pt-3 pb-2 "><span class="text-uppercase small font-weight-bold">数据可视化</span></li>#}
+{#                      <li class="sidebar-layout"><a href="/page/articleChar" class="svg-icon"><i><svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg></i><span class="ml-2">文章分析</span></a></li>#}
+{#                      <li class="sidebar-layout"><a href="/page/ipChar" class="svg-icon"><i><svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg></i><span class="ml-2">IP分析</span></a></li>#}
+{#                      <li class="sidebar-layout"><a href="/page/commentChar" class="svg-icon"><i><svg class="icon line" width="18" id="receipt" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" stroke="currentColor"><path d="M17,16V3L13,5,10,3,7,5,3,3V17.83A3.13,3.13,0,0,0,5.84,21,3,3,0,0,0,9,18V17a1,1,0,0,1,1-1H20a1,1,0,0,1,1,1v1a3,3,0,0,1-3,3H6" style="fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path><line x1="8" y1="10" x2="12" y2="10" style="fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></line></svg></i><span class="ml-2">评论分析</span></a></li>#}
+{#                      <li class="sidebar-layout"><a href="/page/yuqingChar" class="svg-icon"><i><svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg></i><span class="ml-2">舆情分析</span></a></li>#}
+{#                      <li class="px-3 pt-3 pb-2"><span class="text-uppercase small font-weight-bold">词云图</span></li>#}
+{#                      <li class="sidebar-layout"><a href="/page/contentCloud" class="svg-icon"><i><svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg></i><span class="ml-2">文章内容词云图</span></a></li>#}
+{#                      {% if session.get('is_admin') == 1 %}#}
+{#                      <li class="px-3 pt-3 pb-2 "><span class="text-uppercase small font-weight-bold">系统管理</span></li>#}
+{#                      <li class="sidebar-layout"><a href="/page/userManage" class="svg-icon"><svg class="svg-icon" width="18" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg><span class="ml-2">用户管理</span></a></li>#}
+{#                      {% endif %}#}
+{#                  </ul>#}
+{#              </nav>#}
+{#              {% endblock %}#}
+{#              <div class="pt-5 pb-5"></div>#}
+{#          </div>#}
+{#      </div>#}
+{##}
+{#      <div class="iq-top-navbar">#}
+{#          <div class="iq-navbar-custom">#}
+{#              <nav class="navbar navbar-expand-lg navbar-light p-0">#}
+{#                  <div class="side-menu-bt-sidebar">#}
+{#                      <svg xmlns="http://www.w3.org/2000/svg" class="text-secondary wrapper-menu" width="30" fill="none" viewbox="0 0 24 24" stroke="currentColor">#}
+{#                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>#}
+{#                      </svg>#}
+{#                  </div>#}
+{#                  <div class="d-flex align-items-center">#}
+{#                      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-label="Toggle navigation">#}
+{#                          <svg xmlns="http://www.w3.org/2000/svg" class="text-secondary" width="30" fill="none" viewbox="0 0 24 24" stroke="currentColor">#}
+{#                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>#}
+{#                          </svg>#}
+{#                      </button>#}
+{#                      <div class="collapse navbar-collapse" id="navbarSupportedContent">#}
+{#                          <ul class="navbar-nav ml-auto navbar-list align-items-center">#}
+{#                              <li class="nav-item nav-icon dropdown">#}
+{#                                  <a href="#" class="nav-item nav-icon dropdown-toggle pr-0 search-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
+{#                                      <span class="mb-0 ml-2 user-name">{{ username }}</span>#}
+{#                                  </a>#}
+{#                                  <div class="dropdown-menu dropdown-menu-right p-2" aria-labelledby="dropdownMenuButton">#}
+{#                                      <a class="dropdown-item d-flex align-items-center mb-1" href="javascript:void(0);" onclick="$('#changePwdModal').modal('show');" style="border-radius:6px;">#}
+{#                                          <svg class="svg-icon mr-2 text-secondary" width="20" fill="none" viewbox="0 0 24 24" stroke="currentColor">#}
+{#                                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>#}
+{#                                          </svg>#}
+{#                                          修改密码#}
+{#                                      </a>#}
+{#                                      <a class="dropdown-item d-flex align-items-center" href="/user/logOut" style="border-radius:6px;">#}
+{#                                          <svg class="svg-icon mr-2 text-secondary" width="20" fill="none" viewbox="0 0 24 24" stroke="currentColor">#}
+{#                                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>#}
+{#                                          </svg>#}
+{#                                          退出登录#}
+{#                                      </a>#}
+{#                                  </div>#}
+{#                              </li>#}
+{#                          </ul>#}
+{#                      </div>#}
+{#                  </div>#}
+{#              </nav>#}
+{#          </div>#}
+{#      </div>#}
+{##}
+{#        {% block content %}#}
+{#        <div class="content-page">#}
+{#            <div class="container-fluid">#}
+{#               <div class="row">#}
+{#                  <div class="col-md-12 mb-3 mt-1">#}
+{#                     <h4 class="font-weight-bold">数据概览</h4>#}
+{#                  </div>#}
+{#                  <div class="col-lg-4 col-md-6 mb-4">#}
+{#                     <div class="card h-100">#}
+{#                        <div class="card-body">#}
+{#                          <p class="mb-2 text-secondary font-weight-bold">总文章个数</p>#}
+{#                          <h4 class="mb-0 font-weight-bold text-primary">{{ articleLen }} <small class="text-secondary" style="font-size:14px;">个</small></h4>#}
+{#                       </div>#}
+{#                     </div>#}
+{#                  </div>#}
+{#                  <div class="col-lg-4 col-md-6 mb-4">#}
+{#                     <div class="card h-100">#}
+{#                        <div class="card-body">#}
+{#                          <p class="mb-2 text-secondary font-weight-bold">最高点赞微博-作者</p>#}
+{#                          <h4 class="mb-0 font-weight-bold text-success">{{ maxLikeAuthorName }}</h4>#}
+{#                       </div>#}
+{#                     </div>#}
+{#                  </div>#}
+{#                  <div class="col-lg-4 col-md-12 mb-4">#}
+{#                     <div class="card h-100">#}
+{#                        <div class="card-body">#}
+{#                           <p class="mb-2 text-secondary font-weight-bold">分布最多城市</p>#}
+{#                           <h4 class="mb-0 font-weight-bold text-warning">{{ maxCity }}</h4>#}
+{#                       </div>#}
+{#                     </div>#}
+{#                  </div>#}
+{#               </div>#}
+{##}
+{#               <div class="row">#}
+{#                  <div class="col-lg-8 col-md-12 mb-4">#}
+{#                     <div class="card h-100">#}
+{#                        <div class="card-body">#}
+{#                           <h5 class="font-weight-bold mb-3">文章发布时间个数趋势</h5>#}
+{#                           <div id="main" style="width:100%;height:380px"></div>#}
+{#                        </div>#}
+{#                     </div>#}
+{#                  </div>#}
+{##}
+{#                  <div class="col-lg-4 col-md-12 mb-4">#}
+{#                     <div class="card h-100 d-flex flex-column">#}
+{#                        <div class="card-header border-0 pb-2 pt-4 px-4 d-flex justify-content-between">#}
+{#                           <h5 class="card-title font-weight-bold mb-0">评论点赞 Top 5</h5>#}
+{#                        </div>#}
+{#                        <div class="card-body p-0 d-flex flex-column flex-grow-1">#}
+{#                           <ul class="list-style-3 mb-0 flex-grow-1 px-2">#}
+{#                               {% for comment in topFiveComments %}#}
+{#                                   <li class="p-3 list-item d-flex justify-content-start align-items-center">#}
+{#                                     <div class="list-style-detail mr-2" style="max-width: 70%;">#}
+{#                                         <p class="font-weight-bold mb-1 text-dark" style="font-size: 14px;">🧑‍{{ comment[5] }}</p>#}
+{#                                        <p class="mb-0 small text-muted" style="text-overflow:ellipsis; white-space:nowrap; overflow:hidden">{{ comment[4] }}</p>#}
+{#                                     </div>#}
+{#                                     <div class="ml-auto"><h6 class="font-weight-bold text-danger mb-0">👍{{ comment[2] }}</h6></div>#}
+{#                                  </li>#}
+{#                               {% endfor %}#}
+{#                           </ul>#}
+{#                           <div class="p-3 text-center mt-auto border-top">#}
+{#                               <a href="/page/tableData" class="btn btn-outline-primary btn-sm px-4 rounded-pill font-weight-bold">查看全部记录</a>#}
+{#                           </div>#}
+{#                        </div>#}
+{#                     </div>#}
+{#                  </div>#}
+{#               </div>#}
+{##}
+{#               <div class="row">#}
+{#                  <div class="col-lg-4 col-md-6 mb-4">#}
+{#                     <div class="card h-100">#}
+{#                        <div class="card-body">#}
+{#                           <h5 class="card-title font-weight-bold mb-3">文章类型占比</h5>#}
+{#                           <div id="mainTwo" style="width:100%;height:350px"></div>#}
+{#                        </div>#}
+{#                     </div>#}
+{#                  </div>#}
+{#                  <div class="col-lg-4 col-md-6 mb-4">#}
+{#                     <div class="card h-100">#}
+{#                        <div class="card-body d-flex flex-column">#}
+{#                           <h5 class="card-title font-weight-bold mb-3">评论用户名词云</h5>#}
+{#                           <div class="text-center d-flex justify-content-center align-items-center flex-grow-1" style="min-height:350px;">#}
+{#                               <img style="max-width:100%; max-height:320px; object-fit:contain; border-radius:8px;" src="/static/authorNameCloud.jpg" alt="词云图">#}
+{#                           </div>#}
+{#                        </div>#}
+{#                     </div>#}
+{#                  </div>#}
+{#                  <div class="col-lg-4 col-md-12 mb-4">#}
+{#                     <div class="card h-100">#}
+{#                        <div class="card-body">#}
+{#                           <h5 class="card-title font-weight-bold mb-3">发布时间占比</h5>#}
+{#                           <div id="mainThree" style="width:100%;height:350px"></div>#}
+{#                        </div>#}
+{#                     </div>#}
+{#                  </div>#}
+{#               </div>#}
+{##}
+{#            </div>#}
+{#        </div>#}
+{#        {% endblock %}#}
+{#    </div>#}
+{##}
+{#    <div class="modal fade" id="changePwdModal" tabindex="-1" role="dialog" aria-hidden="true" style="z-index: 2000;">#}
+{#        <div class="modal-dialog modal-dialog-centered" role="document">#}
+{#            <div class="modal-content" style="border-radius:12px;">#}
+{#                <div class="modal-header border-bottom-0">#}
+{#                    <h5 class="modal-title font-weight-bold">修改登录密码</h5>#}
+{#                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>#}
+{#                </div>#}
+{#                <div class="modal-body">#}
+{#                    <div class="form-group">#}
+{#                        <label>原密码 <span class="text-danger">*</span></label>#}
+{#                        <div class="input-group">#}
+{#                            <input type="password" class="form-control" id="old_pwd_input" placeholder="请输入原密码">#}
+{#                            <div class="input-group-append">#}
+{#                                <span class="input-group-text toggle-pwd" style="cursor: pointer; background: #fff;" onclick="togglePasswordVisibility('old_pwd_input', this)">#}
+{#                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/><path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/></svg>#}
+{#                                </span>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="form-group">#}
+{#                        <label>新密码 <span class="text-danger">*</span></label>#}
+{#                        <div class="input-group">#}
+{#                            <input type="password" class="form-control" id="new_pwd_input" placeholder="请输入新密码">#}
+{#                            <div class="input-group-append">#}
+{#                                <span class="input-group-text toggle-pwd" style="cursor: pointer; background: #fff;" onclick="togglePasswordVisibility('new_pwd_input', this)">#}
+{#                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/><path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/></svg>#}
+{#                                </span>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="form-group">#}
+{#                        <label>确认新密码 <span class="text-danger">*</span></label>#}
+{#                        <div class="input-group">#}
+{#                            <input type="password" class="form-control" id="confirm_pwd_input" placeholder="请再次输入新密码">#}
+{#                            <div class="input-group-append">#}
+{#                                <span class="input-group-text toggle-pwd" style="cursor: pointer; background: #fff;" onclick="togglePasswordVisibility('confirm_pwd_input', this)">#}
+{#                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/><path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/></svg>#}
+{#                                </span>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="modal-footer border-top-0">#}
+{#                    <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>#}
+{#                    <button type="button" class="btn btn-primary px-4" onclick="submitChangePwd()">保存修改</button>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{##}
+{#    <script>#}
+{#        function togglePasswordVisibility(inputId, iconSpan) {#}
+{#            let input = document.getElementById(inputId);#}
+{#            if (input.type === "password") {#}
+{#                input.type = "text";#}
+{#                iconSpan.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="m10.79 12.912-1.614-1.615a3.5 3.5 0 0 1-4.474-4.474l-2.06-2.06C.938 6.278 0 8 0 8s3 5.5 8 5.5a7.029 7.029 0 0 0 2.79-.588zM5.21 3.088A7.028 7.028 0 0 1 8 2.5c5 0 8 5.5 8 5.5s-.939 1.721-2.641 3.238l-2.062-2.062a3.5 3.5 0 0 0-4.474-4.474L5.21 3.089z"/><path d="M5.525 7.646a2.5 2.5 0 0 0 2.829 2.829l-2.83-2.829zm4.95.708-2.829-2.83a2.5 2.5 0 0 1 2.829 2.829zm3.171 6-12-12 .708-.708 12 12-.708.708z"/></svg>`;#}
+{#            } else {#}
+{#                input.type = "password";#}
+{#                iconSpan.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/><path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/></svg>`;#}
+{#            }#}
+{#        }#}
+{##}
+{#        function submitChangePwd() {#}
+{#            let oldPwd = document.getElementById('old_pwd_input').value;#}
+{#            let newPwd = document.getElementById('new_pwd_input').value;#}
+{#            let confirmPwd = document.getElementById('confirm_pwd_input').value;#}
+{##}
+{#            if(!oldPwd || !newPwd || !confirmPwd) { alert('请填写完整的密码信息！'); return; }#}
+{#            if(newPwd !== confirmPwd) { alert('两次输入的新密码不一致，请重新输入！'); return; }#}
+{##}
+{#            let fd = new FormData();#}
+{#            fd.append('old_pwd', oldPwd);#}
+{#            fd.append('new_pwd', newPwd);#}
+{#            fd.append('new_pwd_confirm', confirmPwd);#}
+{##}
+{#            fetch('/page/changePassword', { method: 'POST', body: fd })#}
+{#            .then(res => res.json())#}
+{#            .then(data => {#}
+{#                if(data.code === 200) { alert('密码修改成功，请重新登录！'); window.location.href = '/user/logOut'; }#}
+{#                else { alert(data.msg || '修改失败'); }#}
+{#            }).catch(() => alert('请求出错！'));#}
+{#        }#}
+{#    </script>#}
+{##}
+{#    <script src="/static/echarts.min.js"></script>#}
+{#    <script src="/static/china.js"></script>#}
+{#    {% block echarts %}#}
+{#    <script>#}
+{#        // 1. 顶部折线图#}
+{#        var lineChart = echarts.init(document.getElementById('main'));#}
+{#        var xData = {{ xData | default([]) | tojson }};#}
+{#        var yData = {{ yData | default([]) | tojson }};#}
+{#        var xRes = xData.slice(0, 8), yRes = yData.slice(0, 8);#}
+{##}
+{#        var options = {#}
+{#            color: ['#5470c6'],#}
+{#            tooltip: { trigger: 'axis' },#}
+{#            toolbox: {#}
+{#                show: true,#}
+{#                right: '4%',#}
+{#                top: '0%',#}
+{#                feature: {#}
+{#                    dataZoom: { yAxisIndex: 'none' },#}
+{#                    magicType: { type: ['line', 'bar'] },#}
+{#                    restore: {},#}
+{#                    saveAsImage: {}#}
+{#                }#}
+{#            },#}
+{#            grid: { left: '1%', right: '3%', top: '15%', bottom: '5%', containLabel: true },#}
+{#            xAxis: { type: 'category', data: xRes, boundaryGap: false },#}
+{#            yAxis: { type: 'value' },#}
+{#            series: [{#}
+{#                name:"日期个数", data: yRes, type: 'line', smooth: true,#}
+{#                areaStyle: { color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ offset: 0, color: 'rgba(84, 112, 198, 0.4)' }, { offset: 1, color: 'rgba(84, 112, 198, 0)' }]) },#}
+{#                lineStyle: { width: 3 },#}
+{#                symbolSize: 6#}
+{#            }]#}
+{#        };#}
+{#        lineChart.setOption(options);#}
+{##}
+{#        let count = 8;#}
+{#        setInterval(() => {#}
+{#            if(!xData.length) return;#}
+{#            if (count >= xData.length) count = 0;#}
+{#            xRes.shift(); xRes.push(xData[count]);#}
+{#            yRes.shift(); yRes.push(yData[count]);#}
+{#            count++;#}
+{#            lineChart.setOption({ xAxis: [{ data: xRes }], series: [{ data: yRes }] });#}
+{#        }, 3000);#}
+{##}
+{#        // 2. 左下饼图：文章类型占比#}
+{#        var myChartTwo = echarts.init(document.getElementById('mainTwo'));#}
+{#        myChartTwo.setOption({#}
+{#            color: ['#5470c6', '#91cc75', '#fac858', '#ee6666', '#73c0de'],#}
+{#            tooltip: { trigger: 'item' },#}
+{#            legend: { bottom: '0', left: 'center', itemWidth: 10, itemHeight: 10, textStyle: { fontSize: 12 } },#}
+{#            series: [{#}
+{#                type: 'pie',#}
+{#                radius: ['35%', '55%'], // 缩小外半径，给标签留出充足空间#}
+{#                center: ['50%', '42%'],#}
+{#                data: {{ userCreatedDicData | default([]) | tojson }},#}
+{#                itemStyle: { borderRadius: 6, borderColor: '#fff', borderWidth: 2 },#}
+{#                label: {#}
+{#                    show: true,#}
+{#                    formatter: '{b}\n{d}%',#}
+{#                    fontSize: 11,#}
+{#                    color: '#555'#}
+{#                },#}
+{#                labelLine: { length: 12, length2: 15 } // 缩短引导线防止越界#}
+{#            }]#}
+{#        });#}
+{##}
+{#        // 3. 右下饼图：发布时间占比#}
+{#        var myChartThree = echarts.init(document.getElementById('mainThree'));#}
+{#        myChartThree.setOption({#}
+{#            color: ['#fac858', '#ee6666', '#73c0de', '#3ba272', '#fc8452'],#}
+{#            tooltip: { trigger: 'item' },#}
+{#            legend: { bottom: '0', left: 'center', type: 'scroll', textStyle: { fontSize: 12 } },#}
+{#            series: [{#}
+{#                type: 'pie',#}
+{#                radius: ['35%', '55%'], // 缩小外半径#}
+{#                center: ['50%', '42%'],#}
+{#                avoidLabelOverlap: true,#}
+{#                itemStyle: { borderRadius: 8, borderColor: '#fff', borderWidth: 2 },#}
+{#                label: {#}
+{#                    show: true,#}
+{#                    formatter: '{b}\n{c}条',#}
+{#                    fontSize: 11,#}
+{#                    color: '#555'#}
+{#                },#}
+{#                labelLine: { length: 12, length2: 15 },#}
+{#                data: {{ commentUserCreatedDicData | default([]) | tojson }}#}
+{#            }]#}
+{#        });#}
+{##}
+{#        window.addEventListener('resize', () => { lineChart.resize(); myChartTwo.resize(); myChartThree.resize(); });#}
+{#    </script>#}
+{#    {% endblock %}#}
+{##}
+{#    <script src="/static/js/backend-bundle.min.js"></script>#}
+{#    <script src="/static/js/sidebar.js"></script>#}
+{#    <script src="/static/js/app.js"></script>#}
+{#  </body>#}
+{#</html>#}
+
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <title>{% block  title %}首页{% endblock %}</title>
+      <title>{% block title %}首页{% endblock %}</title>
       <link rel="stylesheet" href="/static/css/backend-plugin.min.css">
-      <link rel="stylesheet" href="/static/css/backend.css">  </head>
-  <meta name="referrer" content="no-referrer" />
-  <link rel="dns-prefetch" href="//h5.sinaimg.cn">
+      <link rel="stylesheet" href="/static/css/backend.css">
+
+      <style>
+          /* ====== 清新主题配色 ====== */
+          :root {
+              --primary-color: #00b4d8; /* 晴空蓝/薄荷青 */
+              --sidebar-bg: #ffffff;
+              --sidebar-text: #4a5568;
+              --topbar-bg: #ffffff;
+              --bg-color: #f4f7f6;
+          }
+
+          /* 响应式侧边栏与顶部栏布局 */
+          @media (min-width: 992px) {
+              body:not(.sidebar-main) .iq-sidebar { width: 220px; }
+              body:not(.sidebar-main) .content-page { margin-left: 220px; }
+              body:not(.sidebar-main) .iq-top-navbar { width: calc(100% - 220px); left: 220px; }
+          }
+
+          /* ====== 彻底修复侧边栏折叠/展开时的背景色冲突 ====== */
+          .iq-sidebar,
+          .iq-sidebar.sidebar-default,
+          body.sidebar-main .iq-sidebar {
+              background: var(--sidebar-bg) !important;
+              background-color: var(--sidebar-bg) !important;
+              box-shadow: 0 0 20px rgba(0,0,0,0.03);
+          }
+          .iq-top-navbar { background: var(--topbar-bg) !important; border-bottom: 1px solid #edf2f7; }
+
+          /* 顶部导航栏垂直居中 */
+          .iq-top-navbar .iq-navbar-custom .navbar {
+              min-height: 75px;
+              padding: 0 25px !important;
+              display: flex;
+              align-items: center;
+          }
+
+          /* ====== 侧边栏菜单功能：文字与图标颜色绝对统一为 #00b4d8 ====== */
+          .iq-sidebar-logo a span { font-size: 17px !important; color: #2d3748 !important; font-weight: 700; letter-spacing: 0.5px; }
+
+          /* 1. 默认状态：统一为深灰色 */
+          .iq-sidebar-menu .side-menu li a,
+          .iq-sidebar-menu .side-menu li a span,
+          .iq-sidebar-menu .side-menu li a i,
+          .iq-sidebar-menu .side-menu li a svg {
+              color: #4a5568 !important;
+              font-weight: 500;
+              transition: all 0.3s ease;
+          }
+
+          /* 2. 悬浮 (Hover) & 选中 (Active) 状态：文字、图标、SVG、线条全部强制设为 #00b4d8 */
+          .iq-sidebar-menu .side-menu li.active > a,
+          .iq-sidebar-menu .side-menu li.active > a span,
+          .iq-sidebar-menu .side-menu li.active > a i,
+          .iq-sidebar-menu .side-menu li.active > a svg,
+          .iq-sidebar-menu .side-menu li.active > a path,
+          .iq-sidebar-menu .side-menu li a:hover,
+          .iq-sidebar-menu .side-menu li a:hover span,
+          .iq-sidebar-menu .side-menu li a:hover i,
+          .iq-sidebar-menu .side-menu li a:hover svg,
+          .iq-sidebar-menu .side-menu li a:hover path,
+          .iq-sidebar-menu .side-menu li a:hover line,
+          .iq-sidebar-menu .side-menu li a:hover polyline {
+              color: #00b4d8 !important;
+              stroke: #00b4d8 !important; /* 强制覆盖线条型图标的颜色 */
+          }
+
+          /* 3. 选中时的背景调整为极淡的蓝色，去掉之前的实心块，保证 #00b4d8 的字能看清 */
+          .iq-sidebar-menu .side-menu li.active > a {
+              background: rgba(0, 180, 216, 0.08) !important;
+              border-radius: 8px;
+              margin: 0 15px;
+              box-shadow: none !important;
+          }
+
+          /* 4. 折叠选中状态：完美居中修复比例 */
+          body.sidebar-main .iq-sidebar-menu .side-menu li.active > a {
+              margin: 0 29% !important; /* 使用百分比挤压出完美的方形高亮块 */
+              padding-left: 0 !important;
+              padding-right: 0 !important;
+              justify-content: center !important;
+          }
+          body.sidebar-main .iq-sidebar-menu .side-menu li a i,
+          body.sidebar-main .iq-sidebar-menu .side-menu li a svg {
+              margin-right: 0 !important; /* 去除图标右侧多余间距 */
+          }
+          /* ========================================================= */
+
+          /* 词云图适度悬浮动效 */
+          .word-cloud-container {
+              overflow: hidden; border-radius: 12px; transition: all 0.5s ease; cursor: pointer; background: #fff;
+          }
+          .word-cloud-container img { transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), filter 0.6s ease; }
+          .word-cloud-container:hover img { transform: scale(1.15); filter: brightness(1.05); }
+          .word-cloud-container:hover { box-shadow: 0 15px 35px rgba(0,0,0,0.1); z-index: 10; position: relative; }
+
+          /* 卡片统一优化 */
+          body { background-color: var(--bg-color); }
+          .card { border-radius: 16px; border: none !important; box-shadow: 0 4px 10px rgba(0,0,0,0.03) !important; transition: all 0.3s ease; }
+          .card:hover { box-shadow: 0 8px 25px rgba(0,0,0,0.06) !important; }
+          .card-header { background: transparent; border-bottom: 1px solid #f1f5f9; padding: 1.2rem 1.5rem; }
+
+          /* 列表样式 */
+          .list-style-3 .list-item { border-bottom: 1px solid #f8f9fa; transition: background-color 0.2s; }
+          .list-style-3 .list-item:hover { background-color: #f8fbff; }
+          .list-style-3 .list-item:last-child { border-bottom: none; }
+
+          /* 时间选择器和按钮统一 */
+          .trend-filter-control {
+              height: 32px !important;
+              font-size: 13px !important;
+              padding: 0 16px !important;
+              display: inline-flex !important;
+              align-items: center;
+              justify-content: center;
+              line-height: 1 !important;
+          }
+          input.trend-filter-control { padding: 0 8px !important; }
+      </style>
+  </head>
   <body class="">
     <div class="wrapper">
-      <div class="iq-sidebar  sidebar-default  ">
+
+      <div class="iq-sidebar sidebar-default">
           <div class="iq-sidebar-logo d-flex align-items-end justify-content-between">
-               <a href="" class="header-logo">
+               <a href="/page/home" class="header-logo">
                   <img src="https://weibo.com/favicon.ico" class="img-fluid rounded-normal light-logo" alt="logo">
-                  <img src="https://weibo.com/favicon.ico" class="img-fluid rounded-normal d-none sidebar-light-img" alt="logo">
-                  <span>微博舆情数据分析</span>
+                  <span>舆情分析后台</span>
               </a>
               <div class="side-menu-bt-sidebar-1">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="text-light wrapper-menu" width="30" fill="none" viewbox="0 0 24 24" stroke="currentColor">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="text-light wrapper-menu" width="30" fill="none" viewbox="0 0 24 24" stroke="currentColor">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                      </svg>
-                  </div>
+                  </svg>
+              </div>
           </div>
           <div class="data-scrollbar" data-scroll="1">
               {% block nav %}
-<nav class="iq-sidebar-menu">
+              <nav class="iq-sidebar-menu">
                   <ul id="iq-sidebar-toggle" class="side-menu">
-                      <li class="px-3 pt-3 pb-2 ">
-                          <span class="text-uppercase small font-weight-bold">首页</span>
-                      </li>
+                      <li class="px-3 pt-3 pb-2 "><span class="text-uppercase small font-weight-bold" style="color:#a0aec0">首页</span></li>
                       <li class="active sidebar-layout">
                           <a href="/page/home" class="svg-icon">
-                              <i class="">
-                                  <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none" viewbox="0 0 24 24" stroke="currentColor">
-                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-                                  </svg>
-                              </i>
+                              <i><svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg></i>
                               <span class="ml-2">首页</span>
                           </a>
                       </li>
                       <li class="sidebar-layout">
-                          <a href="/page/tableData" class="collapsed svg-icon">
-                              <i>
-                                  <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none" viewbox="0 0 24 24" stroke="currentColor">
-                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
-                                  </svg>
-                              </i>
+                          <a href="/page/tableData" class="svg-icon">
+                              <i><svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg></i>
                               <span class="ml-2">热词统计</span>
                           </a>
                       </li>
                       <li class="sidebar-layout">
-                          <a href="/page/tableDataArticle" class="collapsed svg-icon">
-                              <i>
-                                  <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none" viewbox="0 0 24 24" stroke="currentColor">
-                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                                  </svg>
-                              </i>
+                          <a href="/page/tableDataArticle" class="svg-icon">
+                              <i><svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg></i>
                               <span class="ml-2">微博舆情统计</span>
                           </a>
                       </li>
-                      <li class="px-3 pt-3 pb-2 ">
-                          <span class="text-uppercase small font-weight-bold">数据可视化</span>
-                      </li>
-                      <li class=" sidebar-layout">
+
+                      <li class="px-3 pt-3 pb-2 "><span class="text-uppercase small font-weight-bold" style="color:#a0aec0">数据可视化</span></li>
+                      <li class="sidebar-layout">
                           <a href="/page/articleChar" class="svg-icon">
-                              <i class="">
-                                  <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none" viewbox="0 0 24 24" stroke="currentColor">
-                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path>
-                                  </svg>
-                              </i>
+                              <i><svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg></i>
                               <span class="ml-2">文章分析</span>
                           </a>
                       </li>
-                      <li class=" sidebar-layout">
+                      <li class="sidebar-layout">
                           <a href="/page/ipChar" class="svg-icon">
-                              <i class="">
-                                  <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none" viewbox="0 0 24 24" stroke="currentColor">
-                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                                  </svg>
-                              </i>
+                              <i><svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg></i>
                               <span class="ml-2">IP分析</span>
                           </a>
                       </li>
-                      <li class=" sidebar-layout">
+                      <li class="sidebar-layout">
                           <a href="/page/commentChar" class="svg-icon">
-                              <i class="">
-                                  <svg class="icon line" width="18" id="receipt" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" stroke="currentColor">
-                                      <path d="M17,16V3L13,5,10,3,7,5,3,3V17.83A3.13,3.13,0,0,0,5.84,21,3,3,0,0,0,9,18V17a1,1,0,0,1,1-1H20a1,1,0,0,1,1,1v1a3,3,0,0,1-3,3H6" style="fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path>
-                                      <line x1="8" y1="10" x2="12" y2="10" style="fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></line>
-                                  </svg>
-                              </i>
+                              <i><svg class="icon line" width="18" id="receipt" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" stroke="currentColor"><path d="M17,16V3L13,5,10,3,7,5,3,3V17.83A3.13,3.13,0,0,0,5.84,21,3,3,0,0,0,9,18V17a1,1,0,0,1,1-1H20a1,1,0,0,1,1,1v1a3,3,0,0,1-3,3H6" style="fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path><line x1="8" y1="10" x2="12" y2="10" style="fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></line></svg></i>
                               <span class="ml-2">评论分析</span>
                           </a>
                       </li>
-                      <li class=" sidebar-layout">
+                      <li class="sidebar-layout">
                           <a href="/page/yuqingChar" class="svg-icon">
-                              <i class="">
-                                  <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none" viewbox="0 0 24 24" stroke="currentColor">
-                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
-                                  </svg>
-                              </i><span class="ml-2">舆情分析</span>
+                              <i><svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg></i>
+                              <span class="ml-2">舆情分析</span>
                           </a>
                       </li>
-                      <li class="px-3 pt-3 pb-2">
-                          <span class="text-uppercase small font-weight-bold">词云图</span>
-                      </li>
-                      <li class=" sidebar-layout">
+
+                      <li class="px-3 pt-3 pb-2"><span class="text-uppercase small font-weight-bold" style="color:#a0aec0">词云图</span></li>
+                      <li class="sidebar-layout">
                           <a href="/page/contentCloud" class="svg-icon">
-                              <i class="">
-                                  <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none" viewbox="0 0 24 24" stroke="currentColor">
-                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
-                                  </svg>
-                              </i><span class="ml-2">文章内容词云图</span>
+                              <i><svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg></i>
+                              <span class="ml-2">文章内容词云图</span>
                           </a>
                       </li>
+
+                      {% if session.get('is_admin') == 1 %}
+                      <li class="px-3 pt-3 pb-2 "><span class="text-uppercase small font-weight-bold" style="color:#a0aec0">系统管理</span></li>
+                      <li class="sidebar-layout">
+                          <a href="/page/userManage" class="svg-icon">
+                              <svg class="svg-icon" width="18" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                              <span class="ml-2">用户管理</span>
+                          </a>
+                      </li>
+                      {% endif %}
                   </ul>
               </nav>
               {% endblock %}
               <div class="pt-5 pb-5"></div>
           </div>
       </div>
-       <div class="iq-top-navbar">
+
+      <div class="iq-top-navbar">
           <div class="iq-navbar-custom">
               <nav class="navbar navbar-expand-lg navbar-light p-0">
                   <div class="side-menu-bt-sidebar">
@@ -129,387 +1164,469 @@
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                       </svg>
                   </div>
-                  <div class="d-flex align-items-center">
-                      <div class="change-mode">
-                          <div class="custom-control custom-switch custom-switch-icon custom-control-inline">
-                              <div class="custom-switch-inner">
-                                  <p class="mb-0"> </p>
-                                  <input type="checkbox" class="custom-control-input" id="dark-mode" data-active="true">
-                                  <label class="custom-control-label" for="dark-mode" data-mode="toggle">
-                                      <span class="switch-icon-right">
-                                          <svg xmlns="http://www.w3.org/2000/svg" id="h-moon" height="20" width="20" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor">
-                                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
-                                          </svg>
-                                      </span>
-                                      <span class="switch-icon-left">
-                                          <svg xmlns="http://www.w3.org/2000/svg" id="h-sun" height="20" width="20" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor">
-                                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
-                                          </svg>
-                                      </span>
-                                  </label>
+                  <div class="ml-auto d-flex align-items-center">
+                      <div class="dropdown">
+                          <a href="#" class="dropdown-toggle d-flex align-items-center" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <div class="avatar-40 rounded-circle bg-primary-light mr-2 d-flex align-items-center justify-content-center text-primary font-weight-bold">
+                                  {{ username[0]|upper }}
                               </div>
+                              <span class="user-name font-weight-bold">{{ username }}</span>
+                          </a>
+                          <div class="dropdown-menu dropdown-menu-right p-2 shadow-lg border-0" aria-labelledby="dropdownMenuButton">
+                              <a class="dropdown-item d-flex align-items-center mb-1" href="javascript:void(0);" onclick="$('#changePwdModal').modal('show');" style="border-radius:8px;">
+                                  <svg class="mr-2 text-secondary" width="18" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                                  修改密码
+                              </a>
+                              <a class="dropdown-item d-flex align-items-center text-danger" href="/user/logOut" style="border-radius:8px;">
+                                  <svg class="mr-2" width="18" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
+                                  安全退出
+                              </a>
                           </div>
-                      </div>
-                      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-label="Toggle navigation">
-                          <svg xmlns="http://www.w3.org/2000/svg" class="text-secondary" width="30" fill="none" viewbox="0 0 24 24" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                          </svg>
-                      </button>
-                      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                          <ul class="navbar-nav ml-auto navbar-list align-items-center">
-                              <li class="nav-item nav-icon dropdown">
-                                  <a href="#" class="nav-item nav-icon dropdown-toggle pr-0 search-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                      <span class="mb-0 ml-2 user-name">{{ username }}</span>
-                                  </a>
-                                  <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                                      <li class="dropdown-item  d-flex svg-icon ">
-                                          <svg class="svg-icon mr-0 text-secondary" id="h-05-p" width="20" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke="currentColor">
-                                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
-                                          </svg>
-                                          <a href="/user/logOut">退出登录</a>
-                                      </li>
-                                  </ul>
-                              </li>
-                          </ul>
                       </div>
                   </div>
               </nav>
           </div>
       </div>
-        {% block content %}
-              <div class="content-page">
-        <div class="container-fluid">
-   <div class="row">
-      <div class="col-md-12 mb-4 mt-1">
-         <div class="d-flex flex-wrap justify-content-between align-items-center">
-             <h4 class="font-weight-bold">首页</h4>
-         </div>
-      </div>
-      <div class="col-lg-8 col-md-12">
-         <div class="row">
-            <div class="col-md-4">
-               <div class="card">
-                  <div class="card-body">
-                     <div class="d-flex align-items-center">
-                        <div class="">
-                            <p class="mb-2 text-secondary">总文章个数</p>
-                            <div class="d-flex flex-wrap justify-content-start align-items-center">
-                               <h5 class="mb-0 font-weight-bold">{{ articleLen }}个</h5>
-                            </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div class="col-md-4">
-            <div class="card">
-                <div class="card-body">
-                    <div class="d-flex align-items-center">
-                        <div class="">
-                            <p class="mb-2 text-secondary">最高点赞微博-作者</p>
-                            <div class="d-flex flex-wrap justify-content-start align-items-center">
-                               <h5 class="mb-0 font-weight-bold">{{ maxLikeAuthorName }}</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </div>
-            <div class="col-md-4">
-            <div class="card">
-                <div class="card-body">
-                    <div class="d-flex align-items-center">
-                        <div class="">
-                           <p class="mb-2 text-secondary">最多城市</p>
-                           <div class="d-flex flex-wrap justify-content-start align-items-center">
-                              <h5 class="mb-0 font-weight-bold">{{ maxCity }}</h5>
-                           </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </div>
-            <div class="col-md-12">
-            <div class="card">
-                <div class="card-body">
-                  <div class="d-flex justify-content-between align-items-center flex-wrap">
-                     <h4 class="font-weight-bold">文章发布时间个数</h4>
-                  </div>
-                   <div id="main" style="width:100%;height:350px">
 
+      {% block content %}
+      <div class="content-page">
+          <div class="container-fluid">
+
+             <div class="row">
+                <div class="col-md-12 mb-3 mt-1"><h4 class="font-weight-bold text-dark">数据概览</h4></div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                   <div class="card h-100 bg-white shadow-sm">
+                      <div class="card-body">
+                        <p class="text-secondary small font-weight-bold mb-1">总文章个数</p>
+                        <h3 class="font-weight-bold" style="color:var(--primary-color);">{{ articleLen }} <span class="small text-muted">条</span></h3>
+                     </div>
                    </div>
                 </div>
-            </div>
-            </div>
-         </div>
-      </div>
-      <div class="col-lg-4 col-md-8">
-         <div class="card card-block card-stretch card-height">
-            <div class="card-header card-header-border d-flex justify-content-between">
-               <div class="header-title">
-                  <h4 class="card-title">评论点赞量 Top Fore</h4>
-               </div>
-            </div>
-            <div class="card-body-list">
-               <ul class="list-style-3 mb-0">
-                   {% for comment in topFiveComments %}
-                       <li class="p-3 list-item d-flex justify-content-start align-items-center">
-{#                         <div class="avatar">#}
-{#                                 <img class="avatar avatar-img avatar-60 rounded" src="{{ comment[8] }}" alt="1.jpg">#}
-{#                         </div>#}
-                         <div class="list-style-detail mr-2">
-                             <p>
-                                 🧑‍{{ comment[5] }}
-                             </p>
-                            <p class="mb-0" style="color:#ccc;width:300px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden">
-                                {{ comment[4] }}
-                            </p>
-                         </div>
-                         <div class="list-style-action d-flex justify-content-end ml-auto">
-                            <h6 class="font-weight-bold text-danger">
-                                👍{{ comment[2] }}
-                            </h6>
-                         </div>
-                      </li>
-                   {% endfor %}
-               </ul>
-            <div class="d-flex justify-content-end align-items-center border-top-table p-3">
-                     <a href="/page/tableData" class="btn btn-secondary btn-sm">查看全部</a>
-                  </div>
-            </div>
-         </div>
-
-      </div>
-      <div class="col-lg-4 col-md-6">
-         <div class="card card-block card-stretch card-height">
-            <div class="card-header d-flex justify-content-between">
-               <div class="header-title">
-                  <h4 class="card-title">文章类型占比</h4>
-               </div>
-            </div>
-            <div class="card-body p-10">
-                <div id="mainTwo" style="width:100%;height:450px">
-
+                <div class="col-lg-4 col-md-6 mb-4">
+                   <div class="card h-100 bg-white shadow-sm">
+                      <div class="card-body">
+                        <p class="text-secondary small font-weight-bold mb-1">最高点赞微博-作者</p>
+                        <h3 class="font-weight-bold text-success">{{ maxLikeAuthorName }}</h3>
+                     </div>
+                   </div>
                 </div>
-            </div>
-         </div>
-      </div>
-      <div class="col-lg-4 col-md-6">
-         <div class="card card-block card-stretch card-height">
-            <div class="card-header d-flex justify-content-between">
-               <div class="header-title">
-                  <h4 class="card-title">评论用户名词云图</h4>
-               </div>
-            </div>
-            <div class="card-body p-10">
-                <img style="width:100%" src="/static/authorNameCloud.jpg" alt="">
-            </div>
-         </div>
-      </div>
-      <div class="col-lg-4 col-md-6">
-         <div class="card card-block card-stretch card-height">
-            <div class="card-header d-flex justify-content-between">
-               <div class="header-title">
-                  <h4 class="card-title">评论用户时间占比</h4>
-               </div>
-            </div>
-            <div class="card-body p-10">
-                <div id="mainThree" style="width:100%;height:450px">
-
+                <div class="col-lg-4 col-md-12 mb-4">
+                   <div class="card h-100 bg-white shadow-sm">
+                      <div class="card-body">
+                        <p class="text-secondary small font-weight-bold mb-1">分布最多城市</p>
+                        <h3 class="font-weight-bold text-warning">{{ maxCity }}</h3>
+                     </div>
+                   </div>
                 </div>
-            </div>
-         </div>
-      </div>
-   </div>
-    <!-- Page end  -->
-</div>
-      </div>
-        {% endblock %}
+             </div>
 
+             <div class="row">
+                <div class="col-lg-4 mb-4">
+                   <div class="card h-100">
+                      <div class="card-header"><h5 class="card-title font-weight-bold mb-0 text-dark">评论词云交互</h5></div>
+                      <div class="card-body">
+                         <div class="word-cloud-container text-center d-flex align-items-center justify-content-center" style="height:350px;">
+                             <img src="/static/authorNameCloud.jpg" style="max-width:100%; max-height:100%;">
+                         </div>
+                      </div>
+                   </div>
+                </div>
+
+                <div class="col-lg-8 mb-4">
+                   <div class="card h-100">
+                      <div class="card-header d-flex justify-content-between align-items-center flex-wrap">
+                          <h5 class="card-title font-weight-bold mb-0 text-dark">文章发布时间趋势</h5>
+                          <div class="d-flex align-items-center mt-2 mt-md-0">
+                              <input type="date" id="lineStart" class="form-control trend-filter-control mr-2" style="border-radius: 6px;">
+                              <span class="mr-2 text-muted">-</span>
+                              <input type="date" id="lineEnd" class="form-control trend-filter-control mr-2" style="border-radius: 6px;">
+                              <button class="btn btn-primary trend-filter-control rounded-pill shadow-sm mr-2" onclick="filterLineData()">筛选</button>
+                              <button class="btn btn-outline-secondary trend-filter-control rounded-pill shadow-sm" onclick="resetLineData()">重置</button>
+                          </div>
+                      </div>
+                      <div class="card-body">
+                         <div id="main" style="width:100%;height:350px"></div>
+                      </div>
+                   </div>
+                </div>
+             </div>
+
+             <div class="row">
+                <div class="col-lg-4 mb-4">
+                   <div class="card h-100">
+                      <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="card-title font-weight-bold mb-0 text-dark">文章类型占比</h5>
+                            <div>
+                                <button onclick="prevPageTwo()" class="btn btn-sm btn-outline-primary mr-1" style="border-radius:6px; font-size:12px;">上一页</button>
+                                <button onclick="nextPageTwo()" class="btn btn-sm btn-outline-primary" style="border-radius:6px; font-size:12px;">下一页</button>
+                            </div>
+                        </div>
+                      <div class="card-body">
+                         <div id="mainTwo" style="width:100%;height:350px"></div>
+                      </div>
+                   </div>
+                </div>
+
+                <div class="col-lg-4 mb-4">
+                   <div class="card h-100">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="card-title font-weight-bold mb-0 text-dark">发布时间分布</h5>
+                        <div>
+                            <button onclick="prevPageThree()" class="btn btn-sm btn-outline-primary mr-1" style="border-radius:6px; font-size:12px;">上一页</button>
+                            <button onclick="nextPageThree()" class="btn btn-sm btn-outline-primary" style="border-radius:6px; font-size:12px;">下一页</button>
+                        </div>
+                    </div>
+                      <div class="card-body">
+                         <div id="mainThree" style="width:100%;height:350px"></div>
+                      </div>
+                   </div>
+                </div>
+
+                <div class="col-lg-4 mb-4">
+                   <div class="card h-100 d-flex flex-column">
+                      <div class="card-header border-0 pb-2 d-flex justify-content-between">
+                         <h5 class="card-title font-weight-bold mb-0 text-dark">评论点赞排行榜 (前五)</h5>
+                      </div>
+                      <div class="card-body p-0 d-flex flex-column flex-grow-1">
+                         <ul class="list-style-3 mb-0 flex-grow-1 px-2">
+                             {% for comment in topFiveComments %}
+                             <li class="p-3 list-item d-flex align-items-center">
+                               <div class="mr-3 avatar-40 rounded bg-light d-flex align-items-center justify-content-center font-weight-bold" style="color:var(--primary-color)">#{{ loop.index }}</div>
+                               <div style="max-width: 60%;">
+                                   <p class="font-weight-bold mb-0 text-dark small">🧑‍{{ comment[5] }}</p>
+                                   <p class="mb-0 text-muted small text-truncate">{{ comment[4] }}</p>
+                               </div>
+                               <div class="ml-auto text-right"><span class="badge badge-soft-danger">👍 {{ comment[2] }}</span></div>
+                             </li>
+                             {% endfor %}
+                         </ul>
+                         <div class="p-3 text-center mt-auto border-top">
+                             <a href="/page/tableData" class="btn btn-outline-primary btn-sm px-4 rounded-pill font-weight-bold">查看全部记录</a>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+             </div>
+
+          </div>
+      </div>
+      {% endblock %}
     </div>
-    <footer class="iq-footer">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-6">
+
+    <div class="modal fade" id="changePwdModal" tabindex="-1" role="dialog" aria-hidden="true" style="z-index: 2000;">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content" style="border-radius:12px;">
+                <div class="modal-header border-bottom-0">
+                    <h5 class="modal-title font-weight-bold">修改登录密码</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 </div>
-                <div class="col-lg-6 text-right">
-                    <span class="mr-1">Copyright &copy; 2023.<a target="_blank" href="https://sc.chinaz.com/moban/">微博舆情实时数据分析可视化系统</a></span>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>原密码 <span class="text-danger">*</span></label>
+                        <div class="input-group">
+                            <input type="password" class="form-control" id="old_pwd_input" placeholder="请输入原密码">
+                            <div class="input-group-append">
+                                <span class="input-group-text toggle-pwd" style="cursor: pointer; background: #fff;" onclick="togglePasswordVisibility('old_pwd_input', this)">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/><path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/></svg>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>新密码 <span class="text-danger">*</span></label>
+                        <div class="input-group">
+                            <input type="password" class="form-control" id="new_pwd_input" placeholder="请输入新密码">
+                            <div class="input-group-append">
+                                <span class="input-group-text toggle-pwd" style="cursor: pointer; background: #fff;" onclick="togglePasswordVisibility('new_pwd_input', this)">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/><path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/></svg>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>确认新密码 <span class="text-danger">*</span></label>
+                        <div class="input-group">
+                            <input type="password" class="form-control" id="confirm_pwd_input" placeholder="请再次输入新密码">
+                            <div class="input-group-append">
+                                <span class="input-group-text toggle-pwd" style="cursor: pointer; background: #fff;" onclick="togglePasswordVisibility('confirm_pwd_input', this)">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/><path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/></svg>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer border-top-0">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary px-4" onclick="submitChangePwd()">保存修改</button>
                 </div>
             </div>
         </div>
-    </footer>
-    <script src="/static/echarts.min.js"></script>
-            <script src="/static/china.js"></script>
-    {% block echarts %}
-        <script>
-    var lineChart = document.getElementById('main');
+    </div>
 
-    var myCharts = echarts.init(lineChart,{ width: 1000, height: 250 });
-    var xData = {{ xData | tojson }}
-    var yData = {{ yData }};
-    var xRes = []
-    var yRes = []
-    for (var i = 0; i < 8; i++) {
-        xRes.push(xData[i])
-        yRes.push(yData[i])
-    }
-    var options = {
-        tooltip: {
-    trigger: 'axis'
-  },
-  legend: {},
-  toolbox: {
-    show: true,
-    feature: {
-      dataZoom: {
-        yAxisIndex: 'none'
-      },
-      dataView: { readOnly: false },
-      magicType: { type: ['line', 'bar'] },
-      restore: {},
-      saveAsImage: {}
-    }
-  },
-        xAxis: {
-            type: 'category',
-            data: xRes,
-            boundaryGap: false,
-
-        },
-        yAxis: {
-            type: 'value'
-        },
-        series: [{
-            name:"日期个数",
-            data: yRes,
-            type: 'line',
-            smooth: true, // 圆润的折线
-            areaStyle: {
-                color: 'rgba(0, 128, 255, 0.2)' // 添加阴影效果
-            },
-            lineStyle: {
-                width: 5 // 设置较宽的折线
-            },
-            emphasis: {
-                focus: 'series' // 高亮显示整个系列
+    <script>
+        function togglePasswordVisibility(inputId, iconSpan) {
+            let input = document.getElementById(inputId);
+            if (input.type === "password") {
+                input.type = "text";
+                iconSpan.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="m10.79 12.912-1.614-1.615a3.5 3.5 0 0 1-4.474-4.474l-2.06-2.06C.938 6.278 0 8 0 8s3 5.5 8 5.5a7.029 7.029 0 0 0 2.79-.588zM5.21 3.088A7.028 7.028 0 0 1 8 2.5c5 0 8 5.5 8 5.5s-.939 1.721-2.641 3.238l-2.062-2.062a3.5 3.5 0 0 0-4.474-4.474L5.21 3.089z"/><path d="M5.525 7.646a2.5 2.5 0 0 0 2.829 2.829l-2.83-2.829zm4.95.708-2.829-2.83a2.5 2.5 0 0 1 2.829 2.829zm3.171 6-12-12 .708-.708 12 12-.708.708z"/></svg>`;
+            } else {
+                input.type = "password";
+                iconSpan.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/><path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/></svg>`;
             }
-        }]
-    };
+        }
 
-
-    let count = 8;
-    setInterval(() => {
-        if (count >= xData.length) count = 0
-        xRes.shift()
-        xRes.push(xData[count])
-        yRes.shift()
-        yRes.push(yData[count])
-        count++
-        myCharts.setOption({
-            xAxis: [{
-                data: xRes
-            }],
-            series: [
-                {
-                    data: yRes
-                }
-            ]
-        })
-    }, 2000)
-    myCharts.setOption(options);
-
+        function submitChangePwd() {
+            let oldPwd = document.getElementById('old_pwd_input').value;
+            let newPwd = document.getElementById('new_pwd_input').value;
+            let confirmPwd = document.getElementById('confirm_pwd_input').value;
+            if(!oldPwd || !newPwd || !confirmPwd) { alert('请填写完整的密码信息！'); return; }
+            if(newPwd !== confirmPwd) { alert('两次输入的新密码不一致，请重新输入！'); return; }
+            let fd = new FormData();
+            fd.append('old_pwd', oldPwd);
+            fd.append('new_pwd', newPwd);
+            fd.append('new_pwd_confirm', confirmPwd);
+            fetch('/page/changePassword', { method: 'POST', body: fd })
+            .then(res => res.json())
+            .then(data => {
+                if(data.code === 200) { alert('密码修改成功，请重新登录！'); window.location.href = '/user/logOut'; }
+                else { alert(data.msg || '修改失败'); }
+            }).catch(() => alert('请求出错！'));
+        }
     </script>
-        <script>
-            var chartDom = document.getElementById('mainTwo');
-            var myChart = echarts.init(chartDom);
-            var option;
 
-            option = {
-              title: {
-                text: '各文章类型占比饼状图',
-                left: 'center'
-              },
-              tooltip: {
-                trigger: 'item'
-              },
-              legend: {
-                orient: 'vertical',
-                left: 'left'
-              },
-              series: [
-                {
-                  name: '类型个数',
-                  type: 'pie',
-                  radius: '50%',
-                  data: {{ userCreatedDicData |tojson }},
-                  emphasis: {
-                    itemStyle: {
-                      shadowBlur: 10,
-                      shadowOffsetX: 0,
-                      shadowColor: 'rgba(0, 0, 0, 0.5)'
-                    }
-                  }
+    <script src="/static/echarts.min.js"></script>
+    {% block echarts %}
+    <script>
+        /* --------------------------
+         * 1. 动态折线图 + 时间筛选与重置
+         * -------------------------- */
+        var lineChart = echarts.init(document.getElementById('main'));
+        var xData = {{ xData | default([]) | tojson }};
+        var yData = {{ yData | default([]) | tojson }};
+
+        var xRes = xData.slice(0, 8);
+        var yRes = yData.slice(0, 8);
+        var count = 8;
+        let scrollInterval;
+
+        var lineOptions = {
+            color: ['#00b4d8'],
+            tooltip: { trigger: 'axis' },
+            toolbox: { feature: { magicType: { type: ['line', 'bar'] }, saveAsImage: {} } },
+            grid: { left: '1%', right: '4%', top: '10%', bottom: '5%', containLabel: true },
+            xAxis: { type: 'category', data: xRes, boundaryGap: false },
+            yAxis: { type: 'value' },
+            series: [{
+                name: "日期个数", type: 'line', smooth: true,
+                itemStyle: { color: '#00b4d8' },
+                lineStyle: { color: '#00b4d8', width: 3 },
+                areaStyle: { color: new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'rgba(0, 180, 216, 0.4)'},{offset:1,color:'rgba(0, 180, 216, 0)'}]) },
+                data: yRes
+            }]
+        };
+        lineChart.setOption(lineOptions);
+
+        function scrollData() {
+            if(!xData.length) return;
+            if (count >= xData.length) count = 0;
+            xRes.shift(); xRes.push(xData[count]);
+            yRes.shift(); yRes.push(yData[count]);
+            count++;
+            lineChart.setOption({ xAxis: [{ data: xRes }], series: [{ data: yRes }] });
+        }
+
+        scrollInterval = setInterval(scrollData, 2000);
+
+        function filterLineData() {
+            clearInterval(scrollInterval);
+            let start = document.getElementById('lineStart').value;
+            let end = document.getElementById('lineEnd').value;
+
+            if (!start && !end) {
+                resetLineData();
+                return;
+            }
+
+            let filteredX = [];
+            let filteredY = [];
+            for(let i = 0; i < xData.length; i++) {
+                let pass = true;
+                if(start && xData[i] < start) pass = false;
+                if(end && xData[i] > end) pass = false;
+                if(pass) {
+                    filteredX.push(xData[i]);
+                    filteredY.push(yData[i]);
                 }
-              ]
-            };
+            }
+            lineChart.setOption({ xAxis: [{ data: filteredX }], series: [{ data: filteredY }] });
+        }
 
-            option && myChart.setOption(option);
+        function resetLineData() {
+            document.getElementById('lineStart').value = '';
+            document.getElementById('lineEnd').value = '';
+            clearInterval(scrollInterval);
 
-        </script>
-        <script>
-            var chartDom = document.getElementById('mainThree');
-            var myChart = echarts.init(chartDom);
-            var option;
+            xRes = xData.slice(0, 8);
+            yRes = yData.slice(0, 8);
+            count = 8;
 
-            option = {
-              tooltip: {
-                trigger: 'item'
-              },
-              legend: {
-                top: '5%',
-                left: 'center',
-                  type: 'scroll',
-              },
-              series: [
-                {
-                  name: '用户发布微博个数',
-                  type: 'pie',
-                  radius: ['60%', '50%'],
-                  avoidLabelOverlap: false,
-                  label: {
-                    show: false,
-                    position: 'center'
-                  },
-                  emphasis: {
+            lineChart.setOption({ xAxis: [{ data: xRes }], series: [{ data: yRes }] });
+            scrollInterval = setInterval(scrollData, 2000);
+        }
+
+        /* =========================
+         * 公共分页函数
+         * ========================= */
+        function getPageData(data, page, size){
+            return data.slice(page * size, (page + 1) * size);
+        }
+
+        /* =========================
+         * 2. 文章类型占比 (通过按钮分页切片，显示全局占比百分比)
+         * ========================= */
+        var chartTwo = echarts.init(document.getElementById('mainTwo'));
+        var dataTwo = {{ userCreatedDicData|default([])|tojson }};
+        dataTwo.sort((a, b) => b.value - a.value);
+        let totalTwo = dataTwo.reduce((sum, item) => sum + item.value, 0); // 计算全局总量
+
+        let pageSizeTwo = 8; // 每页显示数量，避免重叠
+        let currentPageTwo = 0;
+
+        function renderChartTwo(){
+            let pageData = getPageData(dataTwo, currentPageTwo, pageSizeTwo);
+
+            chartTwo.setOption({
+                color: ['#00b4d8', '#48cae4', '#90e0ef', '#ade8f4', '#caf0f8', '#0077b6', '#0096c7', '#023e8a'],
+                tooltip: {
+                    trigger: 'item',
+                    formatter: function(params) {
+                        let pct = totalTwo > 0 ? ((params.value / totalTwo) * 100).toFixed(2) : 0;
+                        return `${params.name}<br/>数量: ${params.value}<br/>总占比: ${pct}%`;
+                    }
+                },
+                legend: {
+                    type: 'plain',
+                    bottom: 0,
+                    left: 'center',
+                    itemWidth: 10,
+                    itemHeight: 10,
+                    textStyle: { fontSize: 11 }
+                },
+                series: [{
+                    type: 'pie',
+                    radius: ['35%', '55%'],
+                    center: ['50%', '42%'],
+                    data: pageData,
+                    avoidLabelOverlap: true,
+                    minShowLabelAngle: 2,
+                    labelLine: { length: 5, length2: 10 },
                     label: {
-                      show: true,
-                      fontSize: 27,
-                      fontWeight: 'bold'
-                    }
-                  },
-                  labelLine: {
-                    show: false
-                  },
-                  data:{{ commentUserCreatedDicData | tojson }}
-                }
-              ]
-            };
+                        show: true,
+                        formatter: function(params) {
+                            let pct = totalTwo > 0 ? ((params.value / totalTwo) * 100).toFixed(1) : 0;
+                            return `${params.name}\n${pct}%`;
+                        },
+                        fontSize: 11,
+                        color: '#555'
+                    },
+                    itemStyle: { borderRadius: 4, borderColor: '#fff', borderWidth: 2 }
+                }]
+            });
+        }
 
-            option && myChart.setOption(option);
-        </script>
+        function nextPageTwo(){
+            if((currentPageTwo + 1) * pageSizeTwo < dataTwo.length){
+                currentPageTwo++;
+                renderChartTwo();
+            }
+        }
+
+        function prevPageTwo(){
+            if(currentPageTwo > 0){
+                currentPageTwo--;
+                renderChartTwo();
+            }
+        }
+        renderChartTwo();
+
+        /* =========================
+         * 3. 发布时间分布 (通过按钮分页切片，显示全局占比百分比)
+         * ========================= */
+        var chartThree = echarts.init(document.getElementById('mainThree'));
+        var dataThree = {{ commentUserCreatedDicData|default([])|tojson }};
+        dataThree.sort((a, b) => b.value - a.value);
+        let totalThree = dataThree.reduce((sum, item) => sum + item.value, 0); // 计算全局总量
+
+        let pageSizeThree = 8; // 每页显示数量
+        let currentPageThree = 0;
+
+        function renderChartThree(){
+            let pageData = getPageData(dataThree, currentPageThree, pageSizeThree);
+
+            chartThree.setOption({
+                color: ['#ffb703', '#fb8500', '#ffc300', '#ffecd1', '#ffe066', '#fca311', '#e85d04', '#dc2f02'],
+                tooltip: {
+                    trigger: 'item',
+                    formatter: function(params) {
+                        let pct = totalThree > 0 ? ((params.value / totalThree) * 100).toFixed(2) : 0;
+                        return `${params.name}<br/>数量: ${params.value}条<br/>总占比: ${pct}%`;
+                    }
+                },
+                legend: {
+                    type: 'plain',
+                    bottom: 0,
+                    left: 'center',
+                    itemWidth: 10,
+                    itemHeight: 10,
+                    textStyle: { fontSize: 11 }
+                },
+                series: [{
+                    type: 'pie',
+                    radius: ['35%', '55%'],
+                    center: ['50%', '42%'],
+                    data: pageData,
+                    avoidLabelOverlap: true,
+                    minShowLabelAngle: 2,
+                    labelLine: { length: 5, length2: 10 },
+                    label: {
+                        show: true,
+                        formatter: '{b}\n{c}条',
+                        fontSize: 11,
+                        color: '#555'
+                    },
+                    itemStyle: { borderRadius: 4, borderColor: '#fff', borderWidth: 2 }
+                }]
+            });
+        }
+
+        function nextPageThree(){
+            if((currentPageThree + 1) * pageSizeThree < dataThree.length){
+                currentPageThree++;
+                renderChartThree();
+            }
+        }
+
+        function prevPageThree(){
+            if(currentPageThree > 0){
+                currentPageThree--;
+                renderChartThree();
+            }
+        }
+        renderChartThree();
+
+        /* =========================
+         * 自适应监听
+         * ========================= */
+        window.addEventListener('resize', () => {
+            lineChart.resize();
+            chartTwo.resize();
+            chartThree.resize();
+        });
+    </script>
     {% endblock %}
+
     <script src="/static/js/backend-bundle.min.js"></script>
-    <script src="/static/js/customizer.js"></script>
-    <script src="/static/js/sidebar.js"></script>
-    <script src="/static/js/flex-tree.min.js"></script>
-    <script src="/static/js/tree.js"></script>
-    <script src="/static/js/table-treeview.js"></script>
-    <script src="/static/js/sweetalert.js"></script>
-    <script src="/static/js/vector-map-custom.js"></script>
-    <script src="/static/js/chart-custom.js"></script>
-    <script src="/static/js/01.js"></script>
-    <script src="/static/js/02.js"></script>
-    <script src="/static/js/slider.js"></script>
-    <script src="/static/js/index.js" type="module"></script>
-    <script src="/static/js/app.js"></script>  </body>
+    <script src="/static/js/app.js"></script>
+  </body>
 </html>

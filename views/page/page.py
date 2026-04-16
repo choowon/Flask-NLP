@@ -3,6 +3,9 @@ from utils import getHomeData,getTableData,getEchartsData
 from snownlp import SnowNLP
 from flask import jsonify
 import os
+
+from utils.getPublicData import getAllActiveUsers, softDeleteUser, updatePassword
+
 pb = Blueprint('page',__name__,url_prefix='/page',template_folder='templates')
 
 @pb.route('/home')
@@ -60,7 +63,7 @@ def tableDataArticle():
     username = session.get('username')
     defaultFlag = False
     if request.args.get('flag'):defaultFlag = request.args.get('flag')
-    tableData = getTableData.getTableDataArticle(defaultFlag)
+    tableData = getTableData.getTableDataArticle(defaultFlag, username)
     return render_template('tableDataArticle.html',
                            username=username,
                            defaultFlag=defaultFlag,
@@ -130,17 +133,71 @@ def yuqingChar():
                            y1Data=y1Data[:10]
                            )
 
+
+# [新增点 6]：渲染用户管理页面
+@pb.route('/userManage')
+def userManage():
+    username = session.get('username')
+    is_admin = session.get('is_admin')
+
+    # 鉴权：不是管理员直接跳回首页
+    if is_admin != 1:
+        return redirect('/page/home')
+
+    userList = getAllActiveUsers()
+    return render_template('userManage.html', username=username, userList=userList)
+
+
+# [新增点 7]：处理软删除请求的接口
+@pb.route('/deleteUser', methods=['POST'])
+def deleteUser():
+    if session.get('is_admin') != 1:
+        return jsonify({'code': 403, 'msg': '无权限'})
+
+    uid = request.form.get('id')
+    try:
+        softDeleteUser(uid)
+        return jsonify({'code': 200, 'msg': '删除成功'})
+    except Exception as e:
+        return jsonify({'code': 500, 'msg': str(e)})
+
+
+@pb.route('/changePassword', methods=['POST'])
+def change_password_api():
+    username = session.get('username')
+    old_pwd = request.form.get('old_pwd')
+    new_pwd = request.form.get('new_pwd')
+    new_pwd_confirm = request.form.get('new_pwd_confirm')
+
+    if not username:
+        return jsonify({'code': 401, 'msg': '会话已过期'})
+
+    if not old_pwd or not new_pwd or not new_pwd_confirm:
+        return jsonify({'code': 400, 'msg': '请填写完整的密码信息'})
+
+    if new_pwd != new_pwd_confirm:
+        return jsonify({'code': 400, 'msg': '两次输入的新密码不一致'})
+
+    success, msg = updatePassword(username, old_pwd, new_pwd)
+    if success:
+        return jsonify({'code': 200, 'msg': msg})
+    else:
+        return jsonify({'code': 400, 'msg': msg})
+
 @pb.route('/contentCloud')
 def contentCloud():
     username = session.get('username')
-    # getEchartsData.getContentCloud()
+    getEchartsData.getContentCloud()
     return render_template('contentCloud.html',
                            username=username
                            )
 
 @pb.route('/clear_cache', methods=['POST'])
 def clear_cache():
-    cache_path = 'cache/tableDataArticle.json'
+    username = session.get('username')
+    if not username:
+        return jsonify({'code': 401, 'msg': '用户未登录，无法清理缓存'})
+    cache_path = f'cache/{username}_tableDataArticle.json'
     try:
         if os.path.exists(cache_path):
             os.remove(cache_path)

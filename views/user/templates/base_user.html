@@ -1,76 +1,433 @@
+{#<!doctype html>#}
+{#<html lang="en">#}
+{#  <head>#}
+{#    <meta charset="utf-8">#}
+{#      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">#}
+{#      <title>#}
+{#          {% block title%}#}
+{#      登录#}
+{#      {% endblock %}</title>#}
+{##}
+{#      <link rel="stylesheet" href="/static/css/backend-plugin.min.css">#}
+{#      <link rel="stylesheet" href="/static/css/backend.css">  </head>#}
+{#  <body class=" ">#}
+{##}
+{#      <div class="wrapper">#}
+{#    <section class="login-content" style="background-image:url(https://ts1.cn.mm.bing.net/th/id/R-C.d9e18102a8d13183c6d64ed6a9b30d80?rik=Dx2ZtNqomVs5VA&riu=http%3a%2f%2fimg02.tooopen.com%2fimages%2f20160507%2ftooopen_sy_161792579142.jpg&ehk=A%2b12A85LJsQaD6Fx7f%2fweo5isE54WeoEC93QGjku6N4%3d&risl=&pid=ImgRaw&r=0);background-size: cover;">#}
+{#         <div class="container h-100">#}
+{#             {% block content %}#}
+{#                             <div class="row align-items-center justify-content-center h-100">#}
+{#               <div class="col-md-5">#}
+{#                  <div class="card p-3">#}
+{#                     <div class="card-body">#}
+{#                        <!--div class="auth-logo">#}
+{#                           <img src="https://weibo.com/favicon.ico" class="img-fluid  rounded-normal  darkmode-logo" alt="logo">#}
+{#                           <img src="https://weibo.com/favicon.ico" class="img-fluid rounded-normal light-logo" alt="logo">#}
+{#                        </div-->#}
+{#                        <h3 class="mb-3 font-weight-bold text-center">基于echarts的微博话题分析可视化系统</h3>#}
+{#                        <!--p class="text-center text-secondary mb-4">微博话题舆情分析可视化系统 - flask echarts SnowNLP</p-->#}
+{#                        <div class="mb-5">#}
+{#                            <p class="line-around text-secondary mb-0"><span class="line-around-1">输入您的用户名和密码</span></p>#}
+{#                        </div>#}
+{#                        <form method="POST" action="/user/login">#}
+{#                           <div class="row">#}
+{#                              <div class="col-lg-12">#}
+{#                                 <div class="form-group">#}
+{#                                    <label class="text-secondary">用户名</label>#}
+{#                                    <input name="username" class="form-control" type="text" placeholder="输入您的用户名">#}
+{#                                 </div>#}
+{#                              </div>#}
+{#                              <div class="col-lg-12 mt-2">#}
+{#                                 <div class="form-group">#}
+{#                                         <label class="text-secondary">密码</label>#}
+{#                                    <input name="password" class="form-control" type="password" placeholder="输入您的密码">#}
+{#                                 </div>#}
+{#                              </div>#}
+{#                           </div>#}
+{#                           <button type="submit" class="btn btn-primary btn-block mt-2">登录</button>#}
+{#                           <div class="col-lg-12 mt-3">#}
+{#                                <p class="mb-0 text-center">还没有账号? <a href="/user/register">注册</a></p>#}
+{#                           </div>#}
+{#                        </form>#}
+{#                     </div>#}
+{#                  </div>#}
+{#               </div>#}
+{#            </div>#}
+{##}
+{#             {% endblock %}#}
+{#         </div>#}
+{#      </section>#}
+{#      </div>#}
+{##}
+{#    <script src="/static/js/backend-bundle.min.js"></script>#}
+{#    <script src="/static/js/customizer.js"></script>#}
+{#    <script src="/static/js/sidebar.js"></script>#}
+{#    <script src="/static/js/flex-tree.min.js"></script>#}
+{#    <script src="/static/js/tree.js"></script>#}
+{#    <script src="/static/js/table-treeview.js"></script>#}
+{#    <script src="/static/js/sweetalert.js"></script>#}
+{#    <script src="/static/js/vector-map-custom.js"></script>#}
+{#    <script src="/static/js/chart-custom.js"></script>#}
+{#    <script src="/static/js/01.js"></script>#}
+{#    <script src="/static/js/02.js"></script>#}
+{#    <script src="/static/js/slider.js"></script>#}
+{#    <script src="/static/js/index.js" type="module"></script>#}
+{#    <script src="/static/js/app.js"></script>  </body>#}
+{#</html>#}
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <title>
-          {% block title%}
-      登录
-      {% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}登录/注册{% endblock %} - 微博话题分析系统</title>
+    <link rel="stylesheet" href="/static/css/backend-plugin.min.css">
+    <link rel="stylesheet" href="/static/css/backend.css">
+    <style>
+        /* ================= 小清新色调背景 ================= */
+        body { margin: 0; padding: 0; background-color: #f0f9ff; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+        .auth-bg {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: radial-gradient(circle at 50% -20%, #e0f2fe 0%, #f0f9ff 50%, #f8fafc 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .auth-bg::before, .auth-bg::after {
+            content: ''; position: absolute; border-radius: 50%; filter: blur(80px); z-index: 0;
+        }
+        .auth-bg::before {
+            width: 400px; height: 400px; background: rgba(186, 230, 253, 0.4); top: -100px; left: -100px;
+        }
+        .auth-bg::after {
+            width: 500px; height: 500px; background: rgba(216, 180, 254, 0.15); bottom: -150px; right: -100px;
+        }
 
-      <link rel="stylesheet" href="/static/css/backend-plugin.min.css">
-      <link rel="stylesheet" href="/static/css/backend.css">  </head>
-  <body class=" ">
+        /* 认证卡片 */
+        .auth-card {
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 20px 40px rgba(14, 165, 233, 0.08);
+            position: relative;
+            z-index: 1;
+        }
 
-      <div class="wrapper">
-    <section class="login-content" style="background-image:url(https://ts1.cn.mm.bing.net/th/id/R-C.d9e18102a8d13183c6d64ed6a9b30d80?rik=Dx2ZtNqomVs5VA&riu=http%3a%2f%2fimg02.tooopen.com%2fimages%2f20160507%2ftooopen_sy_161792579142.jpg&ehk=A%2b12A85LJsQaD6Fx7f%2fweo5isE54WeoEC93QGjku6N4%3d&risl=&pid=ImgRaw&r=0);background-size: cover;">
-         <div class="container h-100">
-             {% block content %}
-                             <div class="row align-items-center justify-content-center h-100">
-               <div class="col-md-5">
-                  <div class="card p-3">
-                     <div class="card-body">
-                        <!--div class="auth-logo">
-                           <img src="https://weibo.com/favicon.ico" class="img-fluid  rounded-normal  darkmode-logo" alt="logo">
-                           <img src="https://weibo.com/favicon.ico" class="img-fluid rounded-normal light-logo" alt="logo">
-                        </div-->
-                        <h3 class="mb-3 font-weight-bold text-center">基于echarts的微博话题分析可视化系统</h3>
-                        <!--p class="text-center text-secondary mb-4">微博话题舆情分析可视化系统 - flask echarts SnowNLP</p-->
-                        <div class="mb-5">
-                            <p class="line-around text-secondary mb-0"><span class="line-around-1">输入您的用户名和密码</span></p>
-                        </div>
-                        <form method="POST" action="/user/login">
-                           <div class="row">
-                              <div class="col-lg-12">
-                                 <div class="form-group">
-                                    <label class="text-secondary">用户名</label>
-                                    <input name="username" class="form-control" type="text" placeholder="输入您的用户名">
-                                 </div>
-                              </div>
-                              <div class="col-lg-12 mt-2">
-                                 <div class="form-group">
-                                         <label class="text-secondary">密码</label>
-                                    <input name="password" class="form-control" type="password" placeholder="输入您的密码">
-                                 </div>
-                              </div>
-                           </div>
-                           <button type="submit" class="btn btn-primary btn-block mt-2">登录</button>
-                           <div class="col-lg-12 mt-3">
-                                <p class="mb-0 text-center">还没有账号? <a href="/user/register">注册</a></p>
-                           </div>
-                        </form>
-                     </div>
-                  </div>
-               </div>
+        /* 表单输入框 */
+        .form-control {
+            border-radius: 12px; padding: 14px 16px; background-color: #f8fafc; border: 1px solid #e2e8f0; transition: all 0.3s;
+        }
+        .form-control:focus {
+            background-color: #fff; border-color: #7dd3fc; box-shadow: 0 0 0 4px rgba(125, 211, 252, 0.2);
+        }
+        .btn-custom {
+            border-radius: 12px; padding: 14px; font-weight: bold; font-size: 16px; letter-spacing: 1px; transition: 0.3s; border: none;
+        }
+        .btn-custom:disabled { opacity: 0.6; cursor: not-allowed; }
+        .btn-custom:not(:disabled):hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+
+        /* ================= 悬浮弹出式拼图验证码 ================= */
+        .puzzle-captcha-wrap {
+            position: relative; width: 100%; margin: 0 auto 24px;
+        }
+        .puzzle-img-box {
+            position: absolute;
+            bottom: 56px;
+            left: 0;
+            width: 100%;
+            height: 160px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            border: 1px solid #e2e8f0;
+            padding: 2px;
+            visibility: hidden;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 100;
+        }
+        .puzzle-img-box::after {
+            content: ''; position: absolute; bottom: -6px; left: 24px;
+            width: 12px; height: 12px; background: #fff;
+            border-right: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0;
+            transform: rotate(45deg);
+        }
+        .puzzle-img-box.show {
+            visibility: visible; opacity: 1; transform: translateY(0);
+        }
+
+        .puzzle-img-box canvas { position: absolute; top: 2px; left: 2px; border-radius: 10px; }
+        #puzzlePiece { z-index: 2; cursor: grab; filter: drop-shadow(0 0 5px rgba(0,0,0,0.4)); }
+
+        .puzzle-refresh {
+            position: absolute; top: 10px; right: 10px; z-index: 3; background: rgba(0,0,0,0.4); color: #fff;
+            border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.3s;
+        }
+        .puzzle-refresh:hover { background: rgba(0,0,0,0.7); transform: rotate(180deg); }
+
+        /* 滑动轨道 */
+        .puzzle-slider {
+            position: relative; width: 100%; height: 48px; background: #f1f5f9; border-radius: 12px; border: 1px solid #e2e8f0; overflow: hidden;
+        }
+        .puzzle-slider-bg {
+            position: absolute; height: 100%; width: 0; background: #bae6fd; border-radius: 12px 0 0 12px; z-index: 1;
+        }
+        .puzzle-slider-text {
+            position: absolute; width: 100%; line-height: 46px; text-align: center; color: #64748b; font-size: 14px; z-index: 2; user-select: none;
+        }
+        .puzzle-slider-btn {
+            position: absolute; top: 0; left: 0; width: 48px; height: 100%; background: #fff; border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; z-index: 3; display: flex; align-items: center; justify-content: center; cursor: grab; color: #94a3b8; transition: background 0.2s, color 0.2s;
+        }
+        .puzzle-slider-btn:active { cursor: grabbing; background: #f8fafc; }
+        .puzzle-slider-btn:hover { color: #38bdf8; }
+
+        /* 验证状态 */
+        .captcha-success .puzzle-slider-bg { background: #34d399; border-radius: 12px; }
+        .captcha-success .puzzle-slider-text { color: #fff; font-weight: bold; }
+        .captcha-success .puzzle-slider-btn { color: #34d399; border-color: #34d399; }
+
+        .captcha-fail .puzzle-slider-bg { background: #f87171; transition: width 0.3s; }
+        .captcha-fail .puzzle-slider-btn { color: #f87171; border-color: #f87171; }
+
+        /* 抖动动画 */
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-6px); }
+            75% { transform: translateX(6px); }
+        }
+        .shake { animation: shake 0.4s ease-in-out; }
+    </style>
+</head>
+<body>
+    <div class="auth-bg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-5">
+                    {% block content %}{% endblock %}
+                </div>
             </div>
-
-             {% endblock %}
-         </div>
-      </section>
-      </div>
+        </div>
+    </div>
 
     <script src="/static/js/backend-bundle.min.js"></script>
-    <script src="/static/js/customizer.js"></script>
-    <script src="/static/js/sidebar.js"></script>
-    <script src="/static/js/flex-tree.min.js"></script>
-    <script src="/static/js/tree.js"></script>
-    <script src="/static/js/table-treeview.js"></script>
-    <script src="/static/js/sweetalert.js"></script>
-    <script src="/static/js/vector-map-custom.js"></script>
-    <script src="/static/js/chart-custom.js"></script>
-    <script src="/static/js/01.js"></script>
-    <script src="/static/js/02.js"></script>
-    <script src="/static/js/slider.js"></script>
-    <script src="/static/js/index.js" type="module"></script>
-    <script src="/static/js/app.js"></script>  </body>
+
+    <script>
+        class PuzzleCaptcha {
+            constructor(containerId, formId, submitBtnId) {
+                this.wrap = document.getElementById(containerId);
+                if(!this.wrap) return;
+
+                this.form = document.getElementById(formId);
+                this.submitBtn = document.getElementById(submitBtnId);
+
+                this.imgBox = this.wrap.querySelector('.puzzle-img-box');
+                this.bgCanvas = this.wrap.querySelector('#puzzleBg');
+                this.pieceCanvas = this.wrap.querySelector('#puzzlePiece');
+                this.bgCtx = this.bgCanvas.getContext('2d');
+                this.pieceCtx = this.pieceCanvas.getContext('2d');
+
+                this.slider = this.wrap.querySelector('.puzzle-slider');
+                this.sliderBtn = this.wrap.querySelector('.puzzle-slider-btn');
+                this.sliderBg = this.wrap.querySelector('.puzzle-slider-bg');
+                this.sliderText = this.wrap.querySelector('.puzzle-slider-text');
+                this.refreshBtn = this.wrap.querySelector('.puzzle-refresh');
+
+                this.width = this.imgBox.offsetWidth - 4;
+                this.height = 156;
+                this.l = 42;
+                this.r = 9;
+
+                this.x = 0;
+                this.y = 0;
+                this.isSuccess = false;
+                this.isDragging = false;
+
+                this.init();
+            }
+
+            init() {
+                this.bgCanvas.width = this.width; this.bgCanvas.height = this.height;
+                this.pieceCanvas.width = this.width; this.pieceCanvas.height = this.height;
+                this.submitBtn.disabled = true;
+
+                this.bindEvents();
+                this.reset();
+            }
+
+            drawPath(ctx, x, y, operation) {
+                ctx.beginPath();
+                ctx.moveTo(x, y);
+                ctx.lineTo(x + this.l / 2 - this.r, y);
+                ctx.arc(x + this.l / 2, y, this.r, Math.PI, 0);
+                ctx.lineTo(x + this.l, y);
+                ctx.lineTo(x + this.l, y + this.l / 2 - this.r);
+                ctx.arc(x + this.l, y + this.l / 2, this.r, 1.5 * Math.PI, 0.5 * Math.PI);
+                ctx.lineTo(x + this.l, y + this.l);
+                ctx.lineTo(x, y + this.l);
+                ctx.lineTo(x, y);
+                ctx.lineWidth = 2;
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.8)';
+                ctx.stroke();
+                ctx.globalCompositeOperation = operation;
+                if(operation === 'destination-over') { ctx.fill(); } else { ctx.clip(); }
+            }
+
+            reset() {
+                this.isSuccess = false;
+                this.slider.classList.remove('captcha-success', 'captcha-fail');
+                this.sliderBtn.style.left = '0px';
+                this.sliderBg.style.width = '0px';
+                this.pieceCanvas.style.transform = 'translateX(0px)';
+                this.sliderText.innerHTML = '拖动滑块进行验证';
+                this.submitBtn.disabled = true;
+
+                this.x = Math.floor(Math.random() * (this.width - this.l - 100)) + 60;
+                this.y = Math.floor(Math.random() * (this.height - this.l - 20)) + 10;
+
+                const img = new Image();
+                img.crossOrigin = "Anonymous";
+                img.onload = () => {
+                    this.bgCtx.clearRect(0, 0, this.width, this.height);
+                    this.pieceCtx.clearRect(0, 0, this.width, this.height);
+
+                    this.bgCtx.drawImage(img, 0, 0, this.width, this.height);
+
+                    this.bgCtx.save();
+                    this.drawPath(this.bgCtx, this.x, this.y, 'source-over');
+                    this.bgCtx.fillStyle = 'rgba(0, 0, 0, 0.5)';
+                    this.bgCtx.fill();
+                    this.bgCtx.restore();
+
+                    this.pieceCtx.save();
+                    this.drawPath(this.pieceCtx, this.x, this.y, 'source-over');
+                    this.pieceCtx.drawImage(img, 0, 0, this.width, this.height);
+                    this.pieceCtx.restore();
+
+                    this.pieceCanvas.style.left = `-${this.x}px`;
+                };
+                img.src = `https://picsum.photos/${this.width}/${this.height}?random=${Math.random()}`;
+            }
+
+            // 修改：彻底解除 isSuccess 拦截，让 success 状态下也能强制收起图片
+            showImg() { if (!this.isSuccess) this.imgBox.classList.add('show'); }
+            hideImg() { this.imgBox.classList.remove('show'); }
+
+            bindEvents() {
+                let startX = 0;
+
+                const onDragStart = (e) => {
+                    if (this.isSuccess) return;
+                    this.isDragging = true;
+                    this.showImg();
+                    startX = e.clientX || e.touches[0].clientX;
+                };
+
+                const onDragMove = (e) => {
+                    if (!this.isDragging || this.isSuccess) return;
+                    let currentX = e.clientX || e.touches[0].clientX;
+
+                    let moveX = currentX - startX;
+                    const maxSliderMove = this.slider.offsetWidth - 48;
+
+                    if (moveX < 0) moveX = 0;
+                    if (moveX > maxSliderMove) moveX = maxSliderMove;
+
+                    this.sliderBtn.style.left = moveX + 'px';
+                    this.sliderBg.style.width = (moveX + 24) + 'px';
+
+                    const maxPieceMove = this.width - this.l;
+                    const pieceMoveX = (moveX / maxSliderMove) * maxPieceMove;
+                    this.pieceCanvas.style.transform = `translateX(${pieceMoveX}px)`;
+                };
+
+                const onDragEnd = () => {
+                    if (!this.isDragging || this.isSuccess) return;
+                    this.isDragging = false;
+
+                    const currentLeft = parseFloat(this.sliderBtn.style.left) || 0;
+                    const maxSliderMove = this.slider.offsetWidth - 48;
+                    const maxPieceMove = this.width - this.l;
+
+                    const pieceMoveX = (currentLeft / maxSliderMove) * maxPieceMove;
+
+                    if (Math.abs(pieceMoveX - this.x) < 5) {
+                        this.success();
+                    } else {
+                        this.fail();
+                    }
+                };
+
+                this.sliderBtn.addEventListener('mousedown', onDragStart);
+                this.sliderBtn.addEventListener('touchstart', onDragStart, {passive: true});
+                document.addEventListener('mousemove', onDragMove);
+                document.addEventListener('touchmove', onDragMove, {passive: false});
+                document.addEventListener('mouseup', onDragEnd);
+                document.addEventListener('touchend', onDragEnd);
+
+                this.refreshBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    this.reset();
+                });
+
+                this.form.addEventListener('submit', (e) => {
+                    if(!this.isSuccess) {
+                        e.preventDefault();
+                        this.showImg();
+                        this.slider.classList.add('shake');
+                        setTimeout(() => {
+                            this.slider.classList.remove('shake');
+                            // 失败提示结束后，如果没有在拖拽，才收起图片
+                            if(!this.isDragging) this.hideImg();
+                        }, 1200);
+                    }
+                });
+            }
+
+            success() {
+                this.isSuccess = true;
+                this.wrap.classList.add('captcha-success');
+                this.sliderText.innerHTML = '验证通过';
+                this.sliderBtn.innerHTML = '<svg width="24" height="24" fill="none" stroke="#34d399" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>';
+                this.pieceCanvas.style.transform = `translateX(${this.x}px)`;
+                this.submitBtn.disabled = false;
+
+                // 【核心修复】：延迟 0.4 秒让用户看到严丝合缝的结果，然后直接触发消失动画
+                setTimeout(() => {
+                    this.hideImg();
+                }, 400);
+            }
+
+            fail() {
+                this.wrap.classList.add('captcha-fail');
+                this.sliderText.innerHTML = '验证失败，请重试';
+                setTimeout(() => {
+                    this.sliderBtn.style.transition = 'left 0.4s bounce';
+                    this.sliderBg.style.transition = 'width 0.4s bounce';
+                    this.pieceCanvas.style.transition = 'transform 0.4s bounce';
+
+                    this.sliderBtn.style.left = '0px';
+                    this.sliderBg.style.width = '0px';
+                    this.pieceCanvas.style.transform = `translateX(0px)`;
+
+                    setTimeout(() => {
+                        this.sliderBtn.style.transition = '';
+                        this.sliderBg.style.transition = '';
+                        this.pieceCanvas.style.transition = '';
+                        this.wrap.classList.remove('captcha-fail');
+                        this.sliderText.innerHTML = '拖动滑块进行验证';
+                        this.hideImg();
+                        this.reset();
+                    }, 400);
+                }, 500);
+            }
+        }
+    </script>
+    {% block extra_js %}{% endblock %}
+</body>
 </html>
