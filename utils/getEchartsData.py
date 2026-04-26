@@ -18,7 +18,7 @@ def getArticleCharOneData(defaultType):
         xData.append(str(rangeNum * item)+ '-' + str(rangeNum*(item+1)))
     yData = [0 for x in range(len(xData))]
     for article in articleList:
-        if article[9] != defaultType:
+        if article[9] == defaultType:
             for item in range(14):
                 if int(article[1]) < rangeNum*(item+2):
                     yData[item] += 1
@@ -33,7 +33,7 @@ def getArticleCharTwoData(defaultType):
         xData.append(str(rangeNum * item)+ '-' + str(rangeNum*(item+1)))
     yData = [0 for x in range(len(xData))]
     for article in articleList:
-        if article[9] != defaultType:
+        if article[9] == defaultType:
             for item in range(14):
                 if int(article[3]) < rangeNum*(item+2):
                     yData[item] += 1
@@ -48,7 +48,7 @@ def getArticleCharThreeData(defaultType):
         xData.append(str(rangeNum * item) + '-' + str(rangeNum * (item + 1)))
     yData = [0 for x in range(len(xData))]
     for article in articleList:
-        if article[9] != defaultType:
+        if article[9] == defaultType:
             for item in range(29):
                 if int(article[3]) < rangeNum * (item + 2):
                     yData[item] += 1
@@ -70,8 +70,10 @@ def getGeoCharDataTwo():
 
     cityDicList = []
     for key, value in cityDic.items():
+        clean_name = key.replace('省', '').replace('市', '').replace('自治区', '') \
+            .replace('维吾尔', '').replace('回族', '').replace('壮族', '').replace('特别行政区', '')
         cityDicList.append({
-            'name': key,
+            'name': clean_name,
             'value': value
         })
     return cityDicList
@@ -93,8 +95,10 @@ def getGeoCharDataOne():
 
     cityDicList = []
     for key, value in cityDic.items():
+        clean_name = key.replace('省', '').replace('市', '').replace('自治区', '') \
+            .replace('维吾尔', '').replace('回族', '').replace('壮族', '').replace('特别行政区', '')
         cityDicList.append({
-            'name': key,
+            'name': clean_name,
             'value': value
         })
     return cityDicList

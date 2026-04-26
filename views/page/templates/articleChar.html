@@ -124,7 +124,7 @@
                         </select>
                         <script>
                             function changeHotWord(e){
-                                window.location.href = 'http://localhost:5000/page/articleChar?type=' + e.target.value
+                                window.location.href = '/page/articleChar?type=' + e.target.value
                             }
                         </script>
                      </div>
@@ -185,172 +185,167 @@
 {% endblock %}
 
 {% block echarts %}
-    <script>
-// 获取容器元素
-// 获取容器元素
-var barChart = document.getElementById('main');
+<script>
+        // ==============================
+        // 图表1：文章点赞量分析 (柱状图)
+        // ==============================
+        var barChart = document.getElementById('main');
+        var myChart = echarts.init(barChart);
 
-// 初始化 ECharts 实例
-var myChart = echarts.init(barChart);
+        // 自定义颜色方案
+        var colors = ['#66CC99', '#FFCC66', '#FF6666', '#6699CC'];
 
-// 模拟数据
-var data = [
-    { range: '0-50', count: 15 },
-    { range: '50-100', count: 25 },
-    { range: '100-150', count: 40 },
-    { range: '150-200', count: 30 },
-    // 其他点赞区间数据...
-];
-
-// 自定义颜色方案
-var colors = ['#66CC99', '#FFCC66', '#FF6666', '#6699CC'];
-
-// 配置柱状图选项
-var option = {
-    title: {
-        text: '点赞区间统计'
-    },
-    tooltip: {
-    trigger: 'item',
-    formatter: '{a} <br/>{b}: {c} ({d}%)'
-  },
-  legend: {
-  },
-    xAxis: {
-        type: 'category',
-        data: {{ xData|tojson }},
-        axisLabel: {
-            color: '#333' // 设置 x 轴刻度标签颜色
-        }
-    },
-    yAxis: {
-        type: 'value',
-        axisLabel: {
-            color: '#333' // 设置 y 轴刻度标签颜色
-        }
-    },
-    series: [
-        {
-            name: '文章数量',
-            type: 'bar',
-
-            data:{{ yData }},
-            itemStyle: {
-                color: function(params) {
-                    return colors[params.dataIndex % colors.length];
+        var option = {
+            title: {
+                text: '点赞区间统计'
+            },
+            tooltip: {
+                trigger: 'item',
+                // 修复了 formatter，移除 {d}% 因为柱状图没有百分比属性
+                formatter: '{a} <br/>{b}: {c} 篇'
+            },
+            legend: {},
+            xAxis: {
+                type: 'category',
+                data: {{ xData | tojson }}, // 使用后端传入的 xData
+                axisLabel: {
+                    color: '#333',
+                    rotate: 30 // 稍微倾斜标签防止字体重叠
                 }
             },
-            animation: true,  // 启用动画效果
-            animationDuration: 1000,  // 动画持续时间（毫秒）
-            animationEasing: 'elasticOut',  // 动画缓动函数
-            emphasis: {
-                itemStyle: {
-                    color: '#3398DB'  // 高亮显示的颜色
+            yAxis: {
+                type: 'value',
+                axisLabel: {
+                    color: '#333'
                 }
-            }
-        }
-    ]
-};
-
-// 使用配置项显示柱状图
-myChart.setOption(option);
-
-    </script>
-    <script>
-        var chartDom = document.getElementById('mainTwo');
-        var myChart = echarts.init(chartDom);
-        var option;
-
-        option = {
-
-    title: {
-        text: '文章评论量区间占比'
-    },
-          xAxis: {
-            type: 'category',
-            data: {{ x1Data |tojson }}
-          },
-          yAxis: {
-            type: 'value'
-          },
-          series: [
-            {
-              data: {{ y1Data }},
-              type: 'line',
-              symbol: 'triangle',
-              symbolSize: 20,
-              lineStyle: {
-                color: '#5470C6',
-                width: 4,
-                type: 'dashed'
-              },
-              itemStyle: {
-                borderWidth: 3,
-                borderColor: '#EE6666',
-                color: 'yellow'
-              }
-            }
-          ]
+            },
+            series: [
+                {
+                    name: '文章数量',
+                    type: 'bar',
+                    data: {{ yData }}, // 使用后端传入的 yData
+                    itemStyle: {
+                        color: function(params) {
+                            return colors[params.dataIndex % colors.length];
+                        }
+                    },
+                    animation: true,
+                    animationDuration: 1000,
+                    animationEasing: 'elasticOut',
+                    emphasis: {
+                        itemStyle: {
+                            color: '#3398DB'
+                        }
+                    }
+                }
+            ]
         };
-
-        option && myChart.setOption(option);
-
+        myChart.setOption(option);
     </script>
-    <script>
-        var chartDom = document.getElementById('mainThree');
-        var myChart = echarts.init(chartDom);
-        var option;
 
-        option = {
-          title: {
-            text: '转发量区间分析图'
-          },
-          tooltip: {
-            trigger: 'axis',
-            axisPointer: {
-              type: 'shadow'
-            }
-          },
+    <script>
+        // ==============================
+        // 图表2：文章评论量分析 (折线图)
+        // ==============================
+        var chartDomTwo = document.getElementById('mainTwo');
+        var myChartTwo = echarts.init(chartDomTwo);
+
+        var optionTwo = {
+            title: {
+                text: '文章评论量区间占比'
+            },
+            tooltip: {
+                trigger: 'axis' // 添加 tooltip 方便鼠标悬浮查看具体数值
+            },
+            xAxis: {
+                type: 'category',
+                data: {{ x1Data | tojson }}, // 使用后端传入的 x1Data
+                axisLabel: { rotate: 30 }
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [
+                {
+                    name: '文章数量',
+                    data: {{ y1Data }}, // 使用后端传入的 y1Data
+                    type: 'line',
+                    symbol: 'triangle',
+                    symbolSize: 12, // 稍微调小一点三角形，视觉更精致
+                    lineStyle: {
+                        color: '#5470C6',
+                        width: 4,
+                        type: 'dashed'
+                    },
+                    itemStyle: {
+                        borderWidth: 3,
+                        borderColor: '#EE6666',
+                        color: 'yellow'
+                    }
+                }
+            ]
+        };
+        myChartTwo.setOption(optionTwo);
+    </script>
+
+    <script>
+        // ==============================
+        // 图表3：文章转发量分析 (条形图)
+        // ==============================
+        var chartDomThree = document.getElementById('mainThree');
+        var myChartThree = echarts.init(chartDomThree);
+
+        var optionThree = {
+            title: {
+                text: '转发量区间分析图'
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                }
+            },
             dataZoom: [
-        {
-          show: true,
-          start: 0,
-          end: 20
-        },
-        {
-          show: true,
-          yAxisIndex: 0,
-          filterMode: 'empty',
-          width: 30,
-          height: '80%',
-          showDataShadow: false,
-          left: '93%'
-        }
-      ],
-          legend: {},
-          grid: {
-            left: '3%',
-            right: '4%',
-            bottom: '3%',
-            containLabel: true
-          },
-          xAxis: {
-            type: 'value',
-            boundaryGap: [0, 0.01]
-          },
-          yAxis: {
-            type: 'category',
-            data: {{ x2Data |tojson }}
-          },
-          series: [
-            {
-              name: '文章个数',
-              type: 'bar',
-              data: {{ y2Data }}
-            }
-          ]
+                {
+                    show: true,
+                    start: 0,
+                    end: 100 // 默认展示0-100%的数据，可以通过滑块控制
+                },
+                {
+                    show: true,
+                    yAxisIndex: 0,
+                    filterMode: 'empty',
+                    width: 30,
+                    height: '80%',
+                    showDataShadow: false,
+                    left: '93%'
+                }
+            ],
+            grid: {
+                left: '3%',
+                right: '6%',
+                bottom: '10%',
+                containLabel: true
+            },
+            xAxis: {
+                type: 'value',
+                boundaryGap: [0, 0.01]
+            },
+            yAxis: {
+                type: 'category',
+                data: {{ x2Data | tojson }} // 使用后端传入的 x2Data
+            },
+            series: [
+                {
+                    name: '文章个数',
+                    type: 'bar',
+                    data: {{ y2Data }}, // 使用后端传入的 y2Data
+                    itemStyle: {
+                        color: '#73C0DE' // 给柱状图加个颜色更美观
+                    }
+                }
+            ]
         };
-
-        option && myChart.setOption(option);
+        myChartThree.setOption(optionThree);
     </script>
 {% endblock %}

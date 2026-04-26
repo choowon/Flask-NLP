@@ -79,6 +79,7 @@ def articleChar():
     xData,yData = getEchartsData.getArticleCharOneData(defaultType)
     x1Data,y1Data = getEchartsData.getArticleCharTwoData(defaultType)
     x2Data,y2Data = getEchartsData.getArticleCharThreeData(defaultType)
+
     return render_template('articleChar.html',
                            username=username,
                            typeList=typeList,
